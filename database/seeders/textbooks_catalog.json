@@ -1,0 +1,2382 @@
+{
+    "1": {
+        "class_name": "Class 1",
+        "class_name_bn": "প্রথম শ্রেণি",
+        "books": [
+            {
+                "title": "আমার বাংলা বই",
+                "english_title": "Amar Bangla Boi",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 96,
+                "group": "general"
+            },
+            {
+                "title": "English for Today",
+                "english_title": "English for Today (Class 1)",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 88,
+                "group": "general"
+            },
+            {
+                "title": "প্রাথমিক গণিত",
+                "english_title": "Elementary Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 104,
+                "group": "general"
+            }
+        ]
+    },
+    "2": {
+        "class_name": "Class 2",
+        "class_name_bn": "দ্বিতীয় শ্রেণি",
+        "books": [
+            {
+                "title": "আমার বাংলা বই",
+                "english_title": "Amar Bangla Boi",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 108,
+                "group": "general"
+            },
+            {
+                "title": "English for Today",
+                "english_title": "English for Today (Class 2)",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 96,
+                "group": "general"
+            },
+            {
+                "title": "প্রাথমিক গণিত",
+                "english_title": "Elementary Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 112,
+                "group": "general"
+            }
+        ]
+    },
+    "3": {
+        "class_name": "Class 3",
+        "class_name_bn": "তৃতীয় শ্রেণি",
+        "books": [
+            {
+                "title": "আমার বাংলা বই",
+                "english_title": "Amar Bangla Boi",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 120,
+                "group": "general"
+            },
+            {
+                "title": "English for Today",
+                "english_title": "English for Today",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 110,
+                "group": "general"
+            },
+            {
+                "title": "প্রাথমিক গণিত",
+                "english_title": "Elementary Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 128,
+                "group": "general"
+            },
+            {
+                "title": "প্রাথমিক বিজ্ঞান",
+                "english_title": "Elementary Science",
+                "subject": "Science",
+                "color_start": "#8B5CF6",
+                "color_end": "#6D28D9",
+                "icon": "science_rounded",
+                "pages": 104,
+                "group": "general"
+            },
+            {
+                "title": "বাংলাদেশ ও বিশ্বপরিচয়",
+                "english_title": "Bangladesh & Global Studies",
+                "subject": "BGS",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "public_rounded",
+                "pages": 96,
+                "group": "general"
+            },
+            {
+                "title": "ইসলাম ও নৈতিক শিক্ষা",
+                "english_title": "Islam & Moral Education",
+                "subject": "Religion",
+                "color_start": "#14B8A6",
+                "color_end": "#0F766E",
+                "icon": "auto_stories_rounded",
+                "pages": 92,
+                "group": "general"
+            },
+            {
+                "title": "হিন্দুধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Hindu Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#F97316",
+                "color_end": "#EA580C",
+                "icon": "auto_stories_rounded",
+                "pages": 90,
+                "group": "general"
+            },
+            {
+                "title": "বৌদ্ধধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Buddhist Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#EAB308",
+                "color_end": "#CA8A04",
+                "icon": "auto_stories_rounded",
+                "pages": 88,
+                "group": "general"
+            },
+            {
+                "title": "খ্রিষ্টধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Christian Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#6366F1",
+                "color_end": "#4F46E5",
+                "icon": "auto_stories_rounded",
+                "pages": 88,
+                "group": "general"
+            }
+        ]
+    },
+    "4": {
+        "class_name": "Class 4",
+        "class_name_bn": "চতুর্থ শ্রেণি",
+        "books": [
+            {
+                "title": "আমার বাংলা বই",
+                "english_title": "Amar Bangla Boi",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 128,
+                "group": "general"
+            },
+            {
+                "title": "English for Today",
+                "english_title": "English for Today",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 116,
+                "group": "general"
+            },
+            {
+                "title": "প্রাথমিক গণিত",
+                "english_title": "Elementary Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 136,
+                "group": "general"
+            },
+            {
+                "title": "প্রাথমিক বিজ্ঞান",
+                "english_title": "Elementary Science",
+                "subject": "Science",
+                "color_start": "#8B5CF6",
+                "color_end": "#6D28D9",
+                "icon": "science_rounded",
+                "pages": 112,
+                "group": "general"
+            },
+            {
+                "title": "বাংলাদেশ ও বিশ্বপরিচয়",
+                "english_title": "Bangladesh & Global Studies",
+                "subject": "BGS",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "public_rounded",
+                "pages": 104,
+                "group": "general"
+            },
+            {
+                "title": "ইসলাম ও নৈতিক শিক্ষা",
+                "english_title": "Islam & Moral Education",
+                "subject": "Religion",
+                "color_start": "#14B8A6",
+                "color_end": "#0F766E",
+                "icon": "auto_stories_rounded",
+                "pages": 98,
+                "group": "general"
+            },
+            {
+                "title": "হিন্দুধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Hindu Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#F97316",
+                "color_end": "#EA580C",
+                "icon": "auto_stories_rounded",
+                "pages": 94,
+                "group": "general"
+            },
+            {
+                "title": "বৌদ্ধধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Buddhist Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#EAB308",
+                "color_end": "#CA8A04",
+                "icon": "auto_stories_rounded",
+                "pages": 92,
+                "group": "general"
+            },
+            {
+                "title": "খ্রিষ্টধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Christian Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#6366F1",
+                "color_end": "#4F46E5",
+                "icon": "auto_stories_rounded",
+                "pages": 92,
+                "group": "general"
+            }
+        ]
+    },
+    "5": {
+        "class_name": "Class 5",
+        "class_name_bn": "পঞ্চম শ্রেণি",
+        "books": [
+            {
+                "title": "আমার বাংলা বই",
+                "english_title": "Amar Bangla Boi",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 140,
+                "group": "general"
+            },
+            {
+                "title": "English for Today",
+                "english_title": "English for Today",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 124,
+                "group": "general"
+            },
+            {
+                "title": "প্রাথমিক গণিত",
+                "english_title": "Elementary Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 144,
+                "group": "general"
+            },
+            {
+                "title": "প্রাথমিক বিজ্ঞান",
+                "english_title": "Elementary Science",
+                "subject": "Science",
+                "color_start": "#8B5CF6",
+                "color_end": "#6D28D9",
+                "icon": "science_rounded",
+                "pages": 120,
+                "group": "general"
+            },
+            {
+                "title": "বাংলাদেশ ও বিশ্বপরিচয়",
+                "english_title": "Bangladesh & Global Studies",
+                "subject": "BGS",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "public_rounded",
+                "pages": 116,
+                "group": "general"
+            },
+            {
+                "title": "ইসলাম ও নৈতিক শিক্ষা",
+                "english_title": "Islam & Moral Education",
+                "subject": "Religion",
+                "color_start": "#14B8A6",
+                "color_end": "#0F766E",
+                "icon": "auto_stories_rounded",
+                "pages": 108,
+                "group": "general"
+            },
+            {
+                "title": "হিন্দুধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Hindu Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#F97316",
+                "color_end": "#EA580C",
+                "icon": "auto_stories_rounded",
+                "pages": 102,
+                "group": "general"
+            },
+            {
+                "title": "বৌদ্ধধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Buddhist Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#EAB308",
+                "color_end": "#CA8A04",
+                "icon": "auto_stories_rounded",
+                "pages": 98,
+                "group": "general"
+            },
+            {
+                "title": "খ্রিষ্টধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Christian Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#6366F1",
+                "color_end": "#4F46E5",
+                "icon": "auto_stories_rounded",
+                "pages": 98,
+                "group": "general"
+            }
+        ]
+    },
+    "6": {
+        "class_name": "Class 6",
+        "class_name_bn": "ষষ্ঠ শ্রেণি",
+        "books": [
+            {
+                "title": "চারুপাঠ",
+                "english_title": "Charupath",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 136,
+                "group": "general"
+            },
+            {
+                "title": "আনন্দপাঠ",
+                "english_title": "Anandapath (Rapid Reader)",
+                "subject": "Bangla",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "auto_stories_rounded",
+                "pages": 96,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা ব্যাকরণ ও নির্মিতি",
+                "english_title": "Bangla Grammar & Composition",
+                "subject": "Bangla",
+                "color_start": "#0D9488",
+                "color_end": "#0F766E",
+                "icon": "edit_note_rounded",
+                "pages": 112,
+                "group": "general"
+            },
+            {
+                "title": "English for Today",
+                "english_title": "English for Today",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 140,
+                "group": "general"
+            },
+            {
+                "title": "English Grammar and Composition",
+                "english_title": "English Grammar & Composition",
+                "subject": "English",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "spellcheck_rounded",
+                "pages": 128,
+                "group": "general"
+            },
+            {
+                "title": "গণিত",
+                "english_title": "Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 164,
+                "group": "general"
+            },
+            {
+                "title": "বিজ্ঞান",
+                "english_title": "General Science",
+                "subject": "Science",
+                "color_start": "#8B5CF6",
+                "color_end": "#6D28D9",
+                "icon": "science_rounded",
+                "pages": 148,
+                "group": "general"
+            },
+            {
+                "title": "তথ্য ও যোগাযোগ প্রযুক্তি",
+                "english_title": "Information & Communication Technology",
+                "subject": "ICT",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "computer_rounded",
+                "pages": 104,
+                "group": "general"
+            },
+            {
+                "title": "বাংলাদেশ ও বিশ্বপরিচয়",
+                "english_title": "Bangladesh & Global Studies",
+                "subject": "BGS",
+                "color_start": "#0284C7",
+                "color_end": "#0369A1",
+                "icon": "public_rounded",
+                "pages": 134,
+                "group": "general"
+            },
+            {
+                "title": "শারীরিক শিক্ষা ও স্বাস্থ্য",
+                "english_title": "Physical Education & Health",
+                "subject": "Physical Ed",
+                "color_start": "#EF4444",
+                "color_end": "#DC2626",
+                "icon": "sports_soccer_rounded",
+                "pages": 92,
+                "group": "general"
+            },
+            {
+                "title": "কর্ম ও জীবনমুখী শিক্ষা",
+                "english_title": "Work & Life Oriented Education",
+                "subject": "Life Skills",
+                "color_start": "#F97316",
+                "color_end": "#EA580C",
+                "icon": "work_outline_rounded",
+                "pages": 88,
+                "group": "general"
+            },
+            {
+                "title": "কৃষিশিক্ষা",
+                "english_title": "Agricultural Studies",
+                "subject": "Agriculture",
+                "color_start": "#84CC16",
+                "color_end": "#65A30D",
+                "icon": "eco_rounded",
+                "pages": 108,
+                "group": "general"
+            },
+            {
+                "title": "গার্হস্থ্য বিজ্ঞান",
+                "english_title": "Home Science",
+                "subject": "Home Science",
+                "color_start": "#EC4899",
+                "color_end": "#BE185D",
+                "icon": "home_work_rounded",
+                "pages": 104,
+                "group": "general"
+            },
+            {
+                "title": "চারু ও কারুকলা",
+                "english_title": "Arts & Crafts",
+                "subject": "Arts",
+                "color_start": "#A855F7",
+                "color_end": "#7E22CE",
+                "icon": "palette_rounded",
+                "pages": 84,
+                "group": "general"
+            },
+            {
+                "title": "ইসলাম শিক্ষা",
+                "english_title": "Islam Studies",
+                "subject": "Religion",
+                "color_start": "#10B981",
+                "color_end": "#047857",
+                "icon": "menu_book_rounded",
+                "pages": 116,
+                "group": "general"
+            },
+            {
+                "title": "হিন্দুধর্ম শিক্ষা",
+                "english_title": "Hinduism Studies",
+                "subject": "Religion",
+                "color_start": "#F97316",
+                "color_end": "#C2410C",
+                "icon": "menu_book_rounded",
+                "pages": 110,
+                "group": "general"
+            },
+            {
+                "title": "বৌদ্ধধর্ম শিক্ষা",
+                "english_title": "Buddhism Studies",
+                "subject": "Religion",
+                "color_start": "#EAB308",
+                "color_end": "#A16207",
+                "icon": "menu_book_rounded",
+                "pages": 106,
+                "group": "general"
+            },
+            {
+                "title": "খ্রিষ্টধর্ম শিক্ষা",
+                "english_title": "Christianity Studies",
+                "subject": "Religion",
+                "color_start": "#6366F1",
+                "color_end": "#4338CA",
+                "icon": "menu_book_rounded",
+                "pages": 106,
+                "group": "general"
+            },
+            {
+                "title": "সচিত্র আরবি পাঠ",
+                "english_title": "Illustrated Arabic Reader",
+                "subject": "Arabic",
+                "color_start": "#14B8A6",
+                "color_end": "#0D9488",
+                "icon": "translate_rounded",
+                "pages": 96,
+                "group": "general"
+            },
+            {
+                "title": "সংস্কৃত",
+                "english_title": "Sanskrit Studies",
+                "subject": "Classical",
+                "color_start": "#78716C",
+                "color_end": "#57534E",
+                "icon": "translate_rounded",
+                "pages": 90,
+                "group": "general"
+            },
+            {
+                "title": "পালি",
+                "english_title": "Pali Studies",
+                "subject": "Classical",
+                "color_start": "#A3E635",
+                "color_end": "#65A30D",
+                "icon": "translate_rounded",
+                "pages": 88,
+                "group": "general"
+            },
+            {
+                "title": "সংগীত",
+                "english_title": "Music",
+                "subject": "Music",
+                "color_start": "#F43F5E",
+                "color_end": "#BE123C",
+                "icon": "music_note_rounded",
+                "pages": 80,
+                "group": "general"
+            },
+            {
+                "title": "ক্ষুদ্র নৃগোষ্ঠীর ভাষা ও সংস্কৃতি",
+                "english_title": "Indigenous Language & Culture",
+                "subject": "Culture",
+                "color_start": "#8B5CF6",
+                "color_end": "#6D28D9",
+                "icon": "groups_rounded",
+                "pages": 94,
+                "group": "general"
+            }
+        ]
+    },
+    "7": {
+        "class_name": "Class 7",
+        "class_name_bn": "সপ্তম শ্রেণি",
+        "books": [
+            {
+                "title": "সপ্তবর্ণা",
+                "english_title": "Saptabarna",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 140,
+                "group": "general"
+            },
+            {
+                "title": "আনন্দপাঠ",
+                "english_title": "Anandapath (Rapid Reader)",
+                "subject": "Bangla",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "auto_stories_rounded",
+                "pages": 100,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা ব্যাকরণ ও নির্মিতি",
+                "english_title": "Bangla Grammar & Composition",
+                "subject": "Bangla",
+                "color_start": "#0D9488",
+                "color_end": "#0F766E",
+                "icon": "edit_note_rounded",
+                "pages": 116,
+                "group": "general"
+            },
+            {
+                "title": "English for Today",
+                "english_title": "English for Today",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 144,
+                "group": "general"
+            },
+            {
+                "title": "English Grammar and Composition",
+                "english_title": "English Grammar & Composition",
+                "subject": "English",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "spellcheck_rounded",
+                "pages": 132,
+                "group": "general"
+            },
+            {
+                "title": "গণিত",
+                "english_title": "Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 168,
+                "group": "general"
+            },
+            {
+                "title": "বিজ্ঞান",
+                "english_title": "General Science",
+                "subject": "Science",
+                "color_start": "#8B5CF6",
+                "color_end": "#6D28D9",
+                "icon": "science_rounded",
+                "pages": 152,
+                "group": "general"
+            },
+            {
+                "title": "তথ্য ও যোগাযোগ প্রযুক্তি",
+                "english_title": "Information & Communication Technology",
+                "subject": "ICT",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "computer_rounded",
+                "pages": 108,
+                "group": "general"
+            },
+            {
+                "title": "বাংলাদেশ ও বিশ্বপরিচয়",
+                "english_title": "Bangladesh & Global Studies",
+                "subject": "BGS",
+                "color_start": "#0284C7",
+                "color_end": "#0369A1",
+                "icon": "public_rounded",
+                "pages": 138,
+                "group": "general"
+            },
+            {
+                "title": "শারীরিক শিক্ষা ও স্বাস্থ্য",
+                "english_title": "Physical Education & Health",
+                "subject": "Physical Ed",
+                "color_start": "#EF4444",
+                "color_end": "#DC2626",
+                "icon": "sports_soccer_rounded",
+                "pages": 96,
+                "group": "general"
+            },
+            {
+                "title": "কর্ম ও জীবনমুখী শিক্ষা",
+                "english_title": "Work & Life Oriented Education",
+                "subject": "Life Skills",
+                "color_start": "#F97316",
+                "color_end": "#EA580C",
+                "icon": "work_outline_rounded",
+                "pages": 92,
+                "group": "general"
+            },
+            {
+                "title": "কৃষিশিক্ষা",
+                "english_title": "Agricultural Studies",
+                "subject": "Agriculture",
+                "color_start": "#84CC16",
+                "color_end": "#65A30D",
+                "icon": "eco_rounded",
+                "pages": 112,
+                "group": "general"
+            },
+            {
+                "title": "গার্হস্থ্য বিজ্ঞান",
+                "english_title": "Home Science",
+                "subject": "Home Science",
+                "color_start": "#EC4899",
+                "color_end": "#BE185D",
+                "icon": "home_work_rounded",
+                "pages": 108,
+                "group": "general"
+            },
+            {
+                "title": "চারু ও কারুকলা",
+                "english_title": "Arts & Crafts",
+                "subject": "Arts",
+                "color_start": "#A855F7",
+                "color_end": "#7E22CE",
+                "icon": "palette_rounded",
+                "pages": 88,
+                "group": "general"
+            },
+            {
+                "title": "ইসলাম শিক্ষা",
+                "english_title": "Islam Studies",
+                "subject": "Religion",
+                "color_start": "#10B981",
+                "color_end": "#047857",
+                "icon": "menu_book_rounded",
+                "pages": 120,
+                "group": "general"
+            },
+            {
+                "title": "হিন্দুধর্ম শিক্ষা",
+                "english_title": "Hinduism Studies",
+                "subject": "Religion",
+                "color_start": "#F97316",
+                "color_end": "#C2410C",
+                "icon": "menu_book_rounded",
+                "pages": 114,
+                "group": "general"
+            },
+            {
+                "title": "বৌদ্ধধর্ম শিক্ষা",
+                "english_title": "Buddhism Studies",
+                "subject": "Religion",
+                "color_start": "#EAB308",
+                "color_end": "#A16207",
+                "icon": "menu_book_rounded",
+                "pages": 110,
+                "group": "general"
+            },
+            {
+                "title": "খ্রিষ্টধর্ম শিক্ষা",
+                "english_title": "Christianity Studies",
+                "subject": "Religion",
+                "color_start": "#6366F1",
+                "color_end": "#4338CA",
+                "icon": "menu_book_rounded",
+                "pages": 110,
+                "group": "general"
+            },
+            {
+                "title": "সচিত্র আরবি পাঠ",
+                "english_title": "Illustrated Arabic Reader",
+                "subject": "Arabic",
+                "color_start": "#14B8A6",
+                "color_end": "#0D9488",
+                "icon": "translate_rounded",
+                "pages": 100,
+                "group": "general"
+            },
+            {
+                "title": "সংস্কৃত",
+                "english_title": "Sanskrit Studies",
+                "subject": "Classical",
+                "color_start": "#78716C",
+                "color_end": "#57534E",
+                "icon": "translate_rounded",
+                "pages": 94,
+                "group": "general"
+            },
+            {
+                "title": "পালি",
+                "english_title": "Pali Studies",
+                "subject": "Classical",
+                "color_start": "#A3E635",
+                "color_end": "#65A30D",
+                "icon": "translate_rounded",
+                "pages": 92,
+                "group": "general"
+            },
+            {
+                "title": "সংগীত",
+                "english_title": "Music",
+                "subject": "Music",
+                "color_start": "#F43F5E",
+                "color_end": "#BE123C",
+                "icon": "music_note_rounded",
+                "pages": 84,
+                "group": "general"
+            }
+        ]
+    },
+    "8": {
+        "class_name": "Class 8",
+        "class_name_bn": "অষ্টম শ্রেণি",
+        "books": [
+            {
+                "title": "সাহিত্য-কণিকা",
+                "english_title": "Sahitya-Kanika",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 148,
+                "group": "general"
+            },
+            {
+                "title": "আনন্দপাঠ",
+                "english_title": "Anandapath (Rapid Reader)",
+                "subject": "Bangla",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "auto_stories_rounded",
+                "pages": 104,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা ব্যাকরণ ও নির্মিতি",
+                "english_title": "Bangla Grammar & Composition",
+                "subject": "Bangla",
+                "color_start": "#0D9488",
+                "color_end": "#0F766E",
+                "icon": "edit_note_rounded",
+                "pages": 120,
+                "group": "general"
+            },
+            {
+                "title": "English for Today",
+                "english_title": "English for Today",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 148,
+                "group": "general"
+            },
+            {
+                "title": "English Grammar and Composition",
+                "english_title": "English Grammar & Composition",
+                "subject": "English",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "spellcheck_rounded",
+                "pages": 136,
+                "group": "general"
+            },
+            {
+                "title": "গণিত",
+                "english_title": "Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 176,
+                "group": "general"
+            },
+            {
+                "title": "বিজ্ঞান",
+                "english_title": "General Science",
+                "subject": "Science",
+                "color_start": "#8B5CF6",
+                "color_end": "#6D28D9",
+                "icon": "science_rounded",
+                "pages": 158,
+                "group": "general"
+            },
+            {
+                "title": "তথ্য ও যোগাযোগ প্রযুক্তি",
+                "english_title": "Information & Communication Technology",
+                "subject": "ICT",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "computer_rounded",
+                "pages": 112,
+                "group": "general"
+            },
+            {
+                "title": "বাংলাদেশ ও বিশ্বপরিচয়",
+                "english_title": "Bangladesh & Global Studies",
+                "subject": "BGS",
+                "color_start": "#0284C7",
+                "color_end": "#0369A1",
+                "icon": "public_rounded",
+                "pages": 142,
+                "group": "general"
+            },
+            {
+                "title": "শারীরিক শিক্ষা ও স্বাস্থ্য",
+                "english_title": "Physical Education & Health",
+                "subject": "Physical Ed",
+                "color_start": "#EF4444",
+                "color_end": "#DC2626",
+                "icon": "sports_soccer_rounded",
+                "pages": 100,
+                "group": "general"
+            },
+            {
+                "title": "কর্ম ও জীবনমুখী শিক্ষা",
+                "english_title": "Work & Life Oriented Education",
+                "subject": "Life Skills",
+                "color_start": "#F97316",
+                "color_end": "#EA580C",
+                "icon": "work_outline_rounded",
+                "pages": 96,
+                "group": "general"
+            },
+            {
+                "title": "কৃষিশিক্ষা",
+                "english_title": "Agricultural Studies",
+                "subject": "Agriculture",
+                "color_start": "#84CC16",
+                "color_end": "#65A30D",
+                "icon": "eco_rounded",
+                "pages": 116,
+                "group": "general"
+            },
+            {
+                "title": "গার্হস্থ্য বিজ্ঞান",
+                "english_title": "Home Science",
+                "subject": "Home Science",
+                "color_start": "#EC4899",
+                "color_end": "#BE185D",
+                "icon": "home_work_rounded",
+                "pages": 112,
+                "group": "general"
+            },
+            {
+                "title": "চারু ও কারুকলা",
+                "english_title": "Arts & Crafts",
+                "subject": "Arts",
+                "color_start": "#A855F7",
+                "color_end": "#7E22CE",
+                "icon": "palette_rounded",
+                "pages": 92,
+                "group": "general"
+            },
+            {
+                "title": "ইসলাম শিক্ষা",
+                "english_title": "Islam Studies",
+                "subject": "Religion",
+                "color_start": "#10B981",
+                "color_end": "#047857",
+                "icon": "menu_book_rounded",
+                "pages": 124,
+                "group": "general"
+            },
+            {
+                "title": "হিন্দুধর্ম শিক্ষা",
+                "english_title": "Hinduism Studies",
+                "subject": "Religion",
+                "color_start": "#F97316",
+                "color_end": "#C2410C",
+                "icon": "menu_book_rounded",
+                "pages": 118,
+                "group": "general"
+            },
+            {
+                "title": "বৌদ্ধধর্ম শিক্ষা",
+                "english_title": "Buddhism Studies",
+                "subject": "Religion",
+                "color_start": "#EAB308",
+                "color_end": "#A16207",
+                "icon": "menu_book_rounded",
+                "pages": 114,
+                "group": "general"
+            },
+            {
+                "title": "খ্রিষ্টধর্ম শিক্ষা",
+                "english_title": "Christianity Studies",
+                "subject": "Religion",
+                "color_start": "#6366F1",
+                "color_end": "#4338CA",
+                "icon": "menu_book_rounded",
+                "pages": 114,
+                "group": "general"
+            },
+            {
+                "title": "সচিত্র আরবি পাঠ",
+                "english_title": "Illustrated Arabic Reader",
+                "subject": "Arabic",
+                "color_start": "#14B8A6",
+                "color_end": "#0D9488",
+                "icon": "translate_rounded",
+                "pages": 104,
+                "group": "general"
+            },
+            {
+                "title": "সংস্কৃত",
+                "english_title": "Sanskrit Studies",
+                "subject": "Classical",
+                "color_start": "#78716C",
+                "color_end": "#57534E",
+                "icon": "translate_rounded",
+                "pages": 98,
+                "group": "general"
+            },
+            {
+                "title": "পালি",
+                "english_title": "Pali Studies",
+                "subject": "Classical",
+                "color_start": "#A3E635",
+                "color_end": "#65A30D",
+                "icon": "translate_rounded",
+                "pages": 96,
+                "group": "general"
+            },
+            {
+                "title": "সংগীত",
+                "english_title": "Music",
+                "subject": "Music",
+                "color_start": "#F43F5E",
+                "color_end": "#BE123C",
+                "icon": "music_note_rounded",
+                "pages": 88,
+                "group": "general"
+            }
+        ]
+    },
+    "9": {
+        "class_name": "Class 9",
+        "class_name_bn": "নবম শ্রেণি",
+        "books": [
+            {
+                "title": "বাংলা সাহিত্য",
+                "english_title": "Bangla Literature",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 180,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা সহপাঠ",
+                "english_title": "Bangla Companion",
+                "subject": "Bangla",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "auto_stories_rounded",
+                "pages": 110,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা ভাষার ব্যাকরণ ও নির্মিতি",
+                "english_title": "Bangla Grammar & Composition",
+                "subject": "Bangla",
+                "color_start": "#0D9488",
+                "color_end": "#0F766E",
+                "icon": "edit_note_rounded",
+                "pages": 140,
+                "group": "general"
+            },
+            {
+                "title": "English for Today",
+                "english_title": "English for Today (SSC)",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 160,
+                "group": "general"
+            },
+            {
+                "title": "English Grammar and Composition",
+                "english_title": "English Grammar & Composition",
+                "subject": "English",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "spellcheck_rounded",
+                "pages": 150,
+                "group": "general"
+            },
+            {
+                "title": "গণিত",
+                "english_title": "General Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 192,
+                "group": "general"
+            },
+            {
+                "title": "তথ্য ও যোগাযোগ প্রযুক্তি",
+                "english_title": "Information & Communication Technology",
+                "subject": "ICT",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "computer_rounded",
+                "pages": 138,
+                "group": "general"
+            },
+            {
+                "title": "ক্যারিয়ার শিক্ষা",
+                "english_title": "Career Education",
+                "subject": "Career",
+                "color_start": "#F97316",
+                "color_end": "#C2410C",
+                "icon": "work_outline_rounded",
+                "pages": 96,
+                "group": "general"
+            },
+            {
+                "title": "শারীরিক শিক্ষা, স্বাস্থ্য বিজ্ঞান ও খেলাধুলা",
+                "english_title": "Physical Education, Health & Sports",
+                "subject": "Physical Ed",
+                "color_start": "#EF4444",
+                "color_end": "#B91C1C",
+                "icon": "sports_soccer_rounded",
+                "pages": 108,
+                "group": "general"
+            },
+            {
+                "title": "ধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#10B981",
+                "color_end": "#047857",
+                "icon": "menu_book_rounded",
+                "pages": 134,
+                "group": "general"
+            },
+            {
+                "title": "কৃষিশিক্ষা",
+                "english_title": "Agricultural Studies",
+                "subject": "Agriculture",
+                "color_start": "#84CC16",
+                "color_end": "#4D7C0F",
+                "icon": "eco_rounded",
+                "pages": 120,
+                "group": "general"
+            },
+            {
+                "title": "গার্হস্থ্য বিজ্ঞান",
+                "english_title": "Home Science",
+                "subject": "Home Science",
+                "color_start": "#EC4899",
+                "color_end": "#BE185D",
+                "icon": "home_work_rounded",
+                "pages": 124,
+                "group": "general"
+            },
+            {
+                "title": "চারু ও কারুকলা",
+                "english_title": "Arts & Crafts",
+                "subject": "Arts",
+                "color_start": "#A855F7",
+                "color_end": "#7E22CE",
+                "icon": "palette_rounded",
+                "pages": 98,
+                "group": "general"
+            },
+            {
+                "title": "বাংলাদেশ ও বিশ্বপরিচয়",
+                "english_title": "Bangladesh & Global Studies",
+                "subject": "BGS",
+                "color_start": "#0284C7",
+                "color_end": "#0369A1",
+                "icon": "public_rounded",
+                "pages": 152,
+                "group": "general"
+            },
+            {
+                "title": "পদার্থবিজ্ঞান",
+                "english_title": "Physics",
+                "subject": "Physics",
+                "color_start": "#EA580C",
+                "color_end": "#C2410C",
+                "icon": "bolt_rounded",
+                "pages": 174,
+                "group": "science"
+            },
+            {
+                "title": "রসায়ন",
+                "english_title": "Chemistry",
+                "subject": "Chemistry",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "science_rounded",
+                "pages": 168,
+                "group": "science"
+            },
+            {
+                "title": "জীববিজ্ঞান",
+                "english_title": "Biology",
+                "subject": "Biology",
+                "color_start": "#6366F1",
+                "color_end": "#4338CA",
+                "icon": "biotech_rounded",
+                "pages": 170,
+                "group": "science"
+            },
+            {
+                "title": "উচ্চতর গণিত",
+                "english_title": "Higher Mathematics",
+                "subject": "Higher Math",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "functions_rounded",
+                "pages": 186,
+                "group": "science"
+            },
+            {
+                "title": "বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা",
+                "english_title": "History of Bangladesh & World Civilization",
+                "subject": "History",
+                "color_start": "#854D0E",
+                "color_end": "#713F12",
+                "icon": "account_balance_rounded",
+                "pages": 164,
+                "group": "humanities"
+            },
+            {
+                "title": "ভূগোল ও পরিবেশ",
+                "english_title": "Geography & Environment",
+                "subject": "Geography",
+                "color_start": "#0891B2",
+                "color_end": "#0E7490",
+                "icon": "terrain_rounded",
+                "pages": 156,
+                "group": "humanities"
+            },
+            {
+                "title": "অর্থনীতি",
+                "english_title": "Economics",
+                "subject": "Economics",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "trending_up_rounded",
+                "pages": 148,
+                "group": "humanities"
+            },
+            {
+                "title": "পৌরনীতি ও নাগরিকতা",
+                "english_title": "Civics & Citizenship",
+                "subject": "Civics",
+                "color_start": "#7C3AED",
+                "color_end": "#5B21B6",
+                "icon": "gavel_rounded",
+                "pages": 150,
+                "group": "humanities"
+            },
+            {
+                "title": "হিসাববিজ্ঞান",
+                "english_title": "Accounting",
+                "subject": "Accounting",
+                "color_start": "#2563EB",
+                "color_end": "#1D4ED8",
+                "icon": "receipt_long_rounded",
+                "pages": 172,
+                "group": "business"
+            },
+            {
+                "title": "ফিন্যান্স ও ব্যাংকিং",
+                "english_title": "Finance & Banking",
+                "subject": "Finance",
+                "color_start": "#0D9488",
+                "color_end": "#115E59",
+                "icon": "account_balance_wallet_rounded",
+                "pages": 154,
+                "group": "business"
+            },
+            {
+                "title": "ব্যবসায় উদ্যোগ",
+                "english_title": "Business Entrepreneurship",
+                "subject": "Business",
+                "color_start": "#EA580C",
+                "color_end": "#C2410C",
+                "icon": "business_center_rounded",
+                "pages": 160,
+                "group": "business"
+            }
+        ]
+    },
+    "10": {
+        "class_name": "Class 10",
+        "class_name_bn": "দশম শ্রেণি",
+        "books": [
+            {
+                "title": "বাংলা সাহিত্য",
+                "english_title": "Bangla Literature",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 180,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা সহপাঠ",
+                "english_title": "Bangla Companion",
+                "subject": "Bangla",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "auto_stories_rounded",
+                "pages": 110,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা ভাষার ব্যাকরণ ও নির্মিতি",
+                "english_title": "Bangla Grammar & Composition",
+                "subject": "Bangla",
+                "color_start": "#0D9488",
+                "color_end": "#0F766E",
+                "icon": "edit_note_rounded",
+                "pages": 140,
+                "group": "general"
+            },
+            {
+                "title": "English for Today",
+                "english_title": "English for Today (SSC)",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 160,
+                "group": "general"
+            },
+            {
+                "title": "English Grammar and Composition",
+                "english_title": "English Grammar & Composition",
+                "subject": "English",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "spellcheck_rounded",
+                "pages": 150,
+                "group": "general"
+            },
+            {
+                "title": "গণিত",
+                "english_title": "General Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 192,
+                "group": "general"
+            },
+            {
+                "title": "তথ্য ও যোগাযোগ প্রযুক্তি",
+                "english_title": "Information & Communication Technology",
+                "subject": "ICT",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "computer_rounded",
+                "pages": 138,
+                "group": "general"
+            },
+            {
+                "title": "ক্যারিয়ার শিক্ষা",
+                "english_title": "Career Education",
+                "subject": "Career",
+                "color_start": "#F97316",
+                "color_end": "#C2410C",
+                "icon": "work_outline_rounded",
+                "pages": 96,
+                "group": "general"
+            },
+            {
+                "title": "শারীরিক শিক্ষা, স্বাস্থ্য বিজ্ঞান ও খেলাধুলা",
+                "english_title": "Physical Education, Health & Sports",
+                "subject": "Physical Ed",
+                "color_start": "#EF4444",
+                "color_end": "#B91C1C",
+                "icon": "sports_soccer_rounded",
+                "pages": 108,
+                "group": "general"
+            },
+            {
+                "title": "ধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#10B981",
+                "color_end": "#047857",
+                "icon": "menu_book_rounded",
+                "pages": 134,
+                "group": "general"
+            },
+            {
+                "title": "কৃষিশিক্ষা",
+                "english_title": "Agricultural Studies",
+                "subject": "Agriculture",
+                "color_start": "#84CC16",
+                "color_end": "#4D7C0F",
+                "icon": "eco_rounded",
+                "pages": 120,
+                "group": "general"
+            },
+            {
+                "title": "গার্হস্থ্য বিজ্ঞান",
+                "english_title": "Home Science",
+                "subject": "Home Science",
+                "color_start": "#EC4899",
+                "color_end": "#BE185D",
+                "icon": "home_work_rounded",
+                "pages": 124,
+                "group": "general"
+            },
+            {
+                "title": "চারু ও কারুকলা",
+                "english_title": "Arts & Crafts",
+                "subject": "Arts",
+                "color_start": "#A855F7",
+                "color_end": "#7E22CE",
+                "icon": "palette_rounded",
+                "pages": 98,
+                "group": "general"
+            },
+            {
+                "title": "বাংলাদেশ ও বিশ্বপরিচয়",
+                "english_title": "Bangladesh & Global Studies",
+                "subject": "BGS",
+                "color_start": "#0284C7",
+                "color_end": "#0369A1",
+                "icon": "public_rounded",
+                "pages": 152,
+                "group": "general"
+            },
+            {
+                "title": "পদার্থবিজ্ঞান",
+                "english_title": "Physics",
+                "subject": "Physics",
+                "color_start": "#EA580C",
+                "color_end": "#C2410C",
+                "icon": "bolt_rounded",
+                "pages": 174,
+                "group": "science"
+            },
+            {
+                "title": "রসায়ন",
+                "english_title": "Chemistry",
+                "subject": "Chemistry",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "science_rounded",
+                "pages": 168,
+                "group": "science"
+            },
+            {
+                "title": "জীববিজ্ঞান",
+                "english_title": "Biology",
+                "subject": "Biology",
+                "color_start": "#6366F1",
+                "color_end": "#4338CA",
+                "icon": "biotech_rounded",
+                "pages": 170,
+                "group": "science"
+            },
+            {
+                "title": "উচ্চতর গণিত",
+                "english_title": "Higher Mathematics",
+                "subject": "Higher Math",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "functions_rounded",
+                "pages": 186,
+                "group": "science"
+            },
+            {
+                "title": "বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা",
+                "english_title": "History of Bangladesh & World Civilization",
+                "subject": "History",
+                "color_start": "#854D0E",
+                "color_end": "#713F12",
+                "icon": "account_balance_rounded",
+                "pages": 164,
+                "group": "humanities"
+            },
+            {
+                "title": "ভূগোল ও পরিবেশ",
+                "english_title": "Geography & Environment",
+                "subject": "Geography",
+                "color_start": "#0891B2",
+                "color_end": "#0E7490",
+                "icon": "terrain_rounded",
+                "pages": 156,
+                "group": "humanities"
+            },
+            {
+                "title": "অর্থনীতি",
+                "english_title": "Economics",
+                "subject": "Economics",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "trending_up_rounded",
+                "pages": 148,
+                "group": "humanities"
+            },
+            {
+                "title": "পৌরনীতি ও নাগরিকতা",
+                "english_title": "Civics & Citizenship",
+                "subject": "Civics",
+                "color_start": "#7C3AED",
+                "color_end": "#5B21B6",
+                "icon": "gavel_rounded",
+                "pages": 150,
+                "group": "humanities"
+            },
+            {
+                "title": "হিসাববিজ্ঞান",
+                "english_title": "Accounting",
+                "subject": "Accounting",
+                "color_start": "#2563EB",
+                "color_end": "#1D4ED8",
+                "icon": "receipt_long_rounded",
+                "pages": 172,
+                "group": "business"
+            },
+            {
+                "title": "ফিন্যান্স ও ব্যাংকিং",
+                "english_title": "Finance & Banking",
+                "subject": "Finance",
+                "color_start": "#0D9488",
+                "color_end": "#115E59",
+                "icon": "account_balance_wallet_rounded",
+                "pages": 154,
+                "group": "business"
+            },
+            {
+                "title": "ব্যবসায় উদ্যোগ",
+                "english_title": "Business Entrepreneurship",
+                "subject": "Business",
+                "color_start": "#EA580C",
+                "color_end": "#C2410C",
+                "icon": "business_center_rounded",
+                "pages": 160,
+                "group": "business"
+            }
+        ]
+    },
+    "11": {
+        "class_name": "Class 11",
+        "class_name_bn": "একাদশ শ্রেণি",
+        "books": [
+            {
+                "title": "বাংলা ১ম পত্র — সাহিত্যপাঠ",
+                "english_title": "Bangla 1st Paper - Sahitya Path",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 210,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা ২য় পত্র — বাংলা ভাষা ও ব্যাকরণ",
+                "english_title": "Bangla 2nd Paper - Bangla Grammar",
+                "subject": "Bangla",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "auto_stories_rounded",
+                "pages": 140,
+                "group": "general"
+            },
+            {
+                "title": "English 1st Paper — English for Today",
+                "english_title": "English 1st Paper - English for Today",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 190,
+                "group": "general"
+            },
+            {
+                "title": "English 2nd Paper — Grammar and Composition",
+                "english_title": "English 2nd Paper - Grammar & Composition",
+                "subject": "English",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "spellcheck_rounded",
+                "pages": 165,
+                "group": "general"
+            },
+            {
+                "title": "তথ্য ও যোগাযোগ প্রযুক্তি (ICT)",
+                "english_title": "Information & Communication Technology",
+                "subject": "ICT",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "computer_rounded",
+                "pages": 180,
+                "group": "general"
+            },
+            {
+                "title": "পদার্থবিজ্ঞান ১ম পত্র",
+                "english_title": "Physics 1st Paper",
+                "subject": "Physics",
+                "color_start": "#EA580C",
+                "color_end": "#C2410C",
+                "icon": "bolt_rounded",
+                "pages": 240,
+                "group": "science"
+            },
+            {
+                "title": "রসায়ন ১ম পত্র",
+                "english_title": "Chemistry 1st Paper",
+                "subject": "Chemistry",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "science_rounded",
+                "pages": 230,
+                "group": "science"
+            },
+            {
+                "title": "জীববিজ্ঞান ১ম পত্র",
+                "english_title": "Biology 1st Paper",
+                "subject": "Biology",
+                "color_start": "#6366F1",
+                "color_end": "#4338CA",
+                "icon": "biotech_rounded",
+                "pages": 220,
+                "group": "science"
+            },
+            {
+                "title": "উচ্চতর গণিত ১ম পত্র",
+                "english_title": "Higher Mathematics 1st Paper",
+                "subject": "Higher Math",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "functions_rounded",
+                "pages": 260,
+                "group": "science"
+            },
+            {
+                "title": "ইতিহাস ১ম পত্র",
+                "english_title": "History 1st Paper",
+                "subject": "History",
+                "color_start": "#854D0E",
+                "color_end": "#713F12",
+                "icon": "account_balance_rounded",
+                "pages": 195,
+                "group": "humanities"
+            },
+            {
+                "title": "ইসলামের ইতিহাস ও সংস্কৃতি ১ম পত্র",
+                "english_title": "Islamic History & Culture 1st Paper",
+                "subject": "History",
+                "color_start": "#0891B2",
+                "color_end": "#0E7490",
+                "icon": "history_edu_rounded",
+                "pages": 185,
+                "group": "humanities"
+            },
+            {
+                "title": "পৌরনীতি ও সুশাসন ১ম পত্র",
+                "english_title": "Civics & Good Governance 1st Paper",
+                "subject": "Civics",
+                "color_start": "#7C3AED",
+                "color_end": "#5B21B6",
+                "icon": "gavel_rounded",
+                "pages": 200,
+                "group": "humanities"
+            },
+            {
+                "title": "অর্থনীতি ১ম পত্র",
+                "english_title": "Economics 1st Paper",
+                "subject": "Economics",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "trending_up_rounded",
+                "pages": 195,
+                "group": "humanities"
+            },
+            {
+                "title": "ভূগোল ১ম পত্র",
+                "english_title": "Geography 1st Paper",
+                "subject": "Geography",
+                "color_start": "#0E7490",
+                "color_end": "#155E75",
+                "icon": "terrain_rounded",
+                "pages": 180,
+                "group": "humanities"
+            },
+            {
+                "title": "যুক্তিবিদ্যা ১ম পত্র",
+                "english_title": "Logic 1st Paper",
+                "subject": "Logic",
+                "color_start": "#4F46E5",
+                "color_end": "#3730A3",
+                "icon": "psychology_alt_rounded",
+                "pages": 175,
+                "group": "humanities"
+            },
+            {
+                "title": "সমাজবিজ্ঞান ১ম পত্র",
+                "english_title": "Sociology 1st Paper",
+                "subject": "Sociology",
+                "color_start": "#854D0E",
+                "color_end": "#713F12",
+                "icon": "groups_rounded",
+                "pages": 190,
+                "group": "humanities"
+            },
+            {
+                "title": "সমাজকর্ম ১ম পত্র",
+                "english_title": "Social Work 1st Paper",
+                "subject": "Social Work",
+                "color_start": "#D97706",
+                "color_end": "#B45309",
+                "icon": "volunteer_activism_rounded",
+                "pages": 185,
+                "group": "humanities"
+            },
+            {
+                "title": "হিসাববিজ্ঞান ১ম পত্র",
+                "english_title": "Accounting 1st Paper",
+                "subject": "Accounting",
+                "color_start": "#2563EB",
+                "color_end": "#1D4ED8",
+                "icon": "receipt_long_rounded",
+                "pages": 225,
+                "group": "business"
+            },
+            {
+                "title": "ব্যবসায় সংগঠন ও ব্যবস্থাপনা ১ম পত্র",
+                "english_title": "Business Organization & Management 1st Paper",
+                "subject": "Business",
+                "color_start": "#EA580C",
+                "color_end": "#C2410C",
+                "icon": "business_center_rounded",
+                "pages": 210,
+                "group": "business"
+            },
+            {
+                "title": "ফিন্যান্স, ব্যাংকিং ও বিমা ১ম পত্র",
+                "english_title": "Finance, Banking & Insurance 1st Paper",
+                "subject": "Finance",
+                "color_start": "#0D9488",
+                "color_end": "#115E59",
+                "icon": "account_balance_wallet_rounded",
+                "pages": 205,
+                "group": "business"
+            },
+            {
+                "title": "উৎপাদন ব্যবস্থাপনা ও বিপণন ১ম পত্র",
+                "english_title": "Production Management & Marketing 1st Paper",
+                "subject": "Marketing",
+                "color_start": "#D97706",
+                "color_end": "#B45309",
+                "icon": "storefront_rounded",
+                "pages": 195,
+                "group": "business"
+            }
+        ]
+    },
+    "12": {
+        "class_name": "Class 12",
+        "class_name_bn": "দ্বাদশ শ্রেণি",
+        "books": [
+            {
+                "title": "বাংলা ১ম পত্র — সাহিত্যপাঠ",
+                "english_title": "Bangla 1st Paper - Sahitya Path",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 210,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা ২য় পত্র — বাংলা ভাষা ও ব্যাকরণ",
+                "english_title": "Bangla 2nd Paper - Bangla Grammar",
+                "subject": "Bangla",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "auto_stories_rounded",
+                "pages": 140,
+                "group": "general"
+            },
+            {
+                "title": "English 1st Paper — English for Today",
+                "english_title": "English 1st Paper - English for Today",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 190,
+                "group": "general"
+            },
+            {
+                "title": "English 2nd Paper — Grammar and Composition",
+                "english_title": "English 2nd Paper - Grammar & Composition",
+                "subject": "English",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "spellcheck_rounded",
+                "pages": 165,
+                "group": "general"
+            },
+            {
+                "title": "তথ্য ও যোগাযোগ প্রযুক্তি (ICT)",
+                "english_title": "Information & Communication Technology",
+                "subject": "ICT",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "computer_rounded",
+                "pages": 180,
+                "group": "general"
+            },
+            {
+                "title": "পদার্থবিজ্ঞান ২য় পত্র",
+                "english_title": "Physics 2nd Paper",
+                "subject": "Physics",
+                "color_start": "#EA580C",
+                "color_end": "#C2410C",
+                "icon": "bolt_rounded",
+                "pages": 250,
+                "group": "science"
+            },
+            {
+                "title": "রসায়ন ২য় পত্র",
+                "english_title": "Chemistry 2nd Paper",
+                "subject": "Chemistry",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "science_rounded",
+                "pages": 240,
+                "group": "science"
+            },
+            {
+                "title": "জীববিজ্ঞান ২য় পত্র",
+                "english_title": "Biology 2nd Paper",
+                "subject": "Biology",
+                "color_start": "#6366F1",
+                "color_end": "#4338CA",
+                "icon": "biotech_rounded",
+                "pages": 230,
+                "group": "science"
+            },
+            {
+                "title": "উচ্চতর গণিত ২য় পত্র",
+                "english_title": "Higher Mathematics 2nd Paper",
+                "subject": "Higher Math",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "functions_rounded",
+                "pages": 270,
+                "group": "science"
+            },
+            {
+                "title": "ইতিহাস ২য় পত্র",
+                "english_title": "History 2nd Paper",
+                "subject": "History",
+                "color_start": "#854D0E",
+                "color_end": "#713F12",
+                "icon": "account_balance_rounded",
+                "pages": 200,
+                "group": "humanities"
+            },
+            {
+                "title": "ইসলামের ইতিহাস ও সংস্কৃতি ২য় পত্র",
+                "english_title": "Islamic History & Culture 2nd Paper",
+                "subject": "History",
+                "color_start": "#0891B2",
+                "color_end": "#0E7490",
+                "icon": "history_edu_rounded",
+                "pages": 190,
+                "group": "humanities"
+            },
+            {
+                "title": "পৌরনীতি ও সুশাসন ২য় পত্র",
+                "english_title": "Civics & Good Governance 2nd Paper",
+                "subject": "Civics",
+                "color_start": "#7C3AED",
+                "color_end": "#5B21B6",
+                "icon": "gavel_rounded",
+                "pages": 210,
+                "group": "humanities"
+            },
+            {
+                "title": "অর্থনীতি ২য় পত্র",
+                "english_title": "Economics 2nd Paper",
+                "subject": "Economics",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "trending_up_rounded",
+                "pages": 200,
+                "group": "humanities"
+            },
+            {
+                "title": "ভূগোল ২য় পত্র",
+                "english_title": "Geography 2nd Paper",
+                "subject": "Geography",
+                "color_start": "#0E7490",
+                "color_end": "#155E75",
+                "icon": "terrain_rounded",
+                "pages": 190,
+                "group": "humanities"
+            },
+            {
+                "title": "যুক্তিবিদ্যা ২য় পত্র",
+                "english_title": "Logic 2nd Paper",
+                "subject": "Logic",
+                "color_start": "#4F46E5",
+                "color_end": "#3730A3",
+                "icon": "psychology_alt_rounded",
+                "pages": 180,
+                "group": "humanities"
+            },
+            {
+                "title": "সমাজবিজ্ঞান ২য় পত্র",
+                "english_title": "Sociology 2nd Paper",
+                "subject": "Sociology",
+                "color_start": "#854D0E",
+                "color_end": "#713F12",
+                "icon": "groups_rounded",
+                "pages": 195,
+                "group": "humanities"
+            },
+            {
+                "title": "সমাজকর্ম ২য় পত্র",
+                "english_title": "Social Work 2nd Paper",
+                "subject": "Social Work",
+                "color_start": "#D97706",
+                "color_end": "#B45309",
+                "icon": "volunteer_activism_rounded",
+                "pages": 190,
+                "group": "humanities"
+            },
+            {
+                "title": "হিসাববিজ্ঞান ২য় পত্র",
+                "english_title": "Accounting 2nd Paper",
+                "subject": "Accounting",
+                "color_start": "#2563EB",
+                "color_end": "#1D4ED8",
+                "icon": "receipt_long_rounded",
+                "pages": 230,
+                "group": "business"
+            },
+            {
+                "title": "ব্যবসায় সংগঠন ও ব্যবস্থাপনা ২য় পত্র",
+                "english_title": "Business Organization & Management 2nd Paper",
+                "subject": "Business",
+                "color_start": "#EA580C",
+                "color_end": "#C2410C",
+                "icon": "business_center_rounded",
+                "pages": 215,
+                "group": "business"
+            },
+            {
+                "title": "ফিন্যান্স, ব্যাংকিং ও বিমা ২য় পত্র",
+                "english_title": "Finance, Banking & Insurance 2nd Paper",
+                "subject": "Finance",
+                "color_start": "#0D9488",
+                "color_end": "#115E59",
+                "icon": "account_balance_wallet_rounded",
+                "pages": 210,
+                "group": "business"
+            },
+            {
+                "title": "উৎপাদন ব্যবস্থাপনা ও বিপণন ২য় পত্র",
+                "english_title": "Production Management & Marketing 2nd Paper",
+                "subject": "Marketing",
+                "color_start": "#D97706",
+                "color_end": "#B45309",
+                "icon": "storefront_rounded",
+                "pages": 200,
+                "group": "business"
+            }
+        ]
+    },
+    "-2": {
+        "class_name": "Play Group",
+        "class_name_bn": "প্লে গ্রুপ",
+        "books": [
+            {
+                "title": "বাংলা বর্ণমালা পরিচিতি",
+                "english_title": "Bangla Alphabet Introduction",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 48,
+                "group": "general"
+            },
+            {
+                "title": "English Alphabet (A–Z)",
+                "english_title": "English Alphabet (A–Z)",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 48,
+                "group": "general"
+            },
+            {
+                "title": "সংখ্যা পরিচিতি (১–১০)",
+                "english_title": "Number Introduction (1-10)",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 40,
+                "group": "general"
+            },
+            {
+                "title": "ছড়ার বই",
+                "english_title": "Rhymes Book",
+                "subject": "Bangla",
+                "color_start": "#EC4899",
+                "color_end": "#BE185D",
+                "icon": "music_note_rounded",
+                "pages": 44,
+                "group": "general"
+            },
+            {
+                "title": "ছবি দেখে শেখা",
+                "english_title": "Learning from Pictures",
+                "subject": "General Knowledge",
+                "color_start": "#8B5CF6",
+                "color_end": "#6D28D9",
+                "icon": "image_rounded",
+                "pages": 40,
+                "group": "general"
+            },
+            {
+                "title": "রং পরিচিতি",
+                "english_title": "Color Introduction",
+                "subject": "Art",
+                "color_start": "#EF4444",
+                "color_end": "#DC2626",
+                "icon": "palette_rounded",
+                "pages": 36,
+                "group": "general"
+            },
+            {
+                "title": "আঁকাআঁকি ও রং করা",
+                "english_title": "Drawing & Coloring",
+                "subject": "Art",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "brush_rounded",
+                "pages": 48,
+                "group": "general"
+            },
+            {
+                "title": "ফল ও ফুল পরিচিতি",
+                "english_title": "Fruits & Flowers",
+                "subject": "Science",
+                "color_start": "#10B981",
+                "color_end": "#047857",
+                "icon": "local_florist_rounded",
+                "pages": 40,
+                "group": "general"
+            },
+            {
+                "title": "পশু-পাখি পরিচিতি",
+                "english_title": "Animals & Birds",
+                "subject": "Science",
+                "color_start": "#F97316",
+                "color_end": "#C2410C",
+                "icon": "pets_rounded",
+                "pages": 40,
+                "group": "general"
+            },
+            {
+                "title": "ভালো আচরণ ও নৈতিক শিক্ষা",
+                "english_title": "Good Manners & Moral Education",
+                "subject": "Moral Education",
+                "color_start": "#14B8A6",
+                "color_end": "#0F766E",
+                "icon": "sentiment_satisfied_alt_rounded",
+                "pages": 36,
+                "group": "general"
+            }
+        ]
+    },
+    "-1": {
+        "class_name": "Nursery",
+        "class_name_bn": "নার্সারি",
+        "books": [
+            {
+                "title": "বাংলা বর্ণমালা",
+                "english_title": "Bangla Alphabet",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 56,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা হাতের লেখা",
+                "english_title": "Bangla Handwriting",
+                "subject": "Bangla",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "edit_note_rounded",
+                "pages": 48,
+                "group": "general"
+            },
+            {
+                "title": "English Alphabet",
+                "english_title": "English Alphabet",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 56,
+                "group": "general"
+            },
+            {
+                "title": "English Handwriting",
+                "english_title": "English Handwriting",
+                "subject": "English",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "draw_rounded",
+                "pages": 48,
+                "group": "general"
+            },
+            {
+                "title": "English Rhymes",
+                "english_title": "English Rhymes",
+                "subject": "English",
+                "color_start": "#6366F1",
+                "color_end": "#4338CA",
+                "icon": "auto_stories_rounded",
+                "pages": 52,
+                "group": "general"
+            },
+            {
+                "title": "প্রাথমিক গণিত",
+                "english_title": "Elementary Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 64,
+                "group": "general"
+            },
+            {
+                "title": "সংখ্যা লেখা ও গণনা",
+                "english_title": "Writing Numbers & Counting",
+                "subject": "Mathematics",
+                "color_start": "#EA580C",
+                "color_end": "#C2410C",
+                "icon": "format_list_numbered_rounded",
+                "pages": 48,
+                "group": "general"
+            },
+            {
+                "title": "ছবি আঁকা ও রং করা",
+                "english_title": "Drawing & Coloring",
+                "subject": "Art",
+                "color_start": "#EC4899",
+                "color_end": "#BE185D",
+                "icon": "palette_rounded",
+                "pages": 52,
+                "group": "general"
+            },
+            {
+                "title": "ছড়া ও কবিতা",
+                "english_title": "Rhymes & Poems",
+                "subject": "Bangla",
+                "color_start": "#A855F7",
+                "color_end": "#7E22CE",
+                "icon": "library_music_rounded",
+                "pages": 50,
+                "group": "general"
+            },
+            {
+                "title": "সাধারণ জ্ঞান",
+                "english_title": "General Knowledge",
+                "subject": "General Knowledge",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "psychology_rounded",
+                "pages": 46,
+                "group": "general"
+            },
+            {
+                "title": "পরিবেশ পরিচিতি",
+                "english_title": "Environment Introduction",
+                "subject": "Science",
+                "color_start": "#84CC16",
+                "color_end": "#4D7C0F",
+                "icon": "eco_rounded",
+                "pages": 48,
+                "group": "general"
+            },
+            {
+                "title": "নৈতিক শিক্ষা",
+                "english_title": "Moral Education",
+                "subject": "Moral Education",
+                "color_start": "#14B8A6",
+                "color_end": "#0F766E",
+                "icon": "favorite_rounded",
+                "pages": 44,
+                "group": "general"
+            }
+        ]
+    },
+    "0": {
+        "class_name": "KG",
+        "class_name_bn": "কেজি",
+        "books": [
+            {
+                "title": "বাংলা পাঠ",
+                "english_title": "Bangla Reading",
+                "subject": "Bangla",
+                "color_start": "#10B981",
+                "color_end": "#059669",
+                "icon": "menu_book_rounded",
+                "pages": 64,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা ব্যাকরণ প্রাথমিক",
+                "english_title": "Elementary Bangla Grammar",
+                "subject": "Bangla",
+                "color_start": "#059669",
+                "color_end": "#047857",
+                "icon": "spellcheck_rounded",
+                "pages": 56,
+                "group": "general"
+            },
+            {
+                "title": "বাংলা হাতের লেখা",
+                "english_title": "Bangla Handwriting",
+                "subject": "Bangla",
+                "color_start": "#0D9488",
+                "color_end": "#0F766E",
+                "icon": "edit_note_rounded",
+                "pages": 50,
+                "group": "general"
+            },
+            {
+                "title": "English Reading",
+                "english_title": "English Reading",
+                "subject": "English",
+                "color_start": "#3B82F6",
+                "color_end": "#1D4ED8",
+                "icon": "school_rounded",
+                "pages": 64,
+                "group": "general"
+            },
+            {
+                "title": "English Grammar",
+                "english_title": "English Grammar",
+                "subject": "English",
+                "color_start": "#2563EB",
+                "color_end": "#1E40AF",
+                "icon": "fact_check_rounded",
+                "pages": 56,
+                "group": "general"
+            },
+            {
+                "title": "English Handwriting",
+                "english_title": "English Handwriting",
+                "subject": "English",
+                "color_start": "#1D4ED8",
+                "color_end": "#1E3A8A",
+                "icon": "draw_rounded",
+                "pages": 50,
+                "group": "general"
+            },
+            {
+                "title": "English Rhymes",
+                "english_title": "English Rhymes",
+                "subject": "English",
+                "color_start": "#6366F1",
+                "color_end": "#4338CA",
+                "icon": "auto_stories_rounded",
+                "pages": 56,
+                "group": "general"
+            },
+            {
+                "title": "গণিত",
+                "english_title": "Mathematics",
+                "subject": "Mathematics",
+                "color_start": "#F59E0B",
+                "color_end": "#D97706",
+                "icon": "calculate_rounded",
+                "pages": 72,
+                "group": "general"
+            },
+            {
+                "title": "যোগ ও বিয়োগ",
+                "english_title": "Addition & Subtraction",
+                "subject": "Mathematics",
+                "color_start": "#EA580C",
+                "color_end": "#C2410C",
+                "icon": "functions_rounded",
+                "pages": 52,
+                "group": "general"
+            },
+            {
+                "title": "প্রাথমিক বিজ্ঞান",
+                "english_title": "Elementary Science",
+                "subject": "Science",
+                "color_start": "#06B6D4",
+                "color_end": "#0891B2",
+                "icon": "science_rounded",
+                "pages": 58,
+                "group": "general"
+            },
+            {
+                "title": "সাধারণ জ্ঞান",
+                "english_title": "General Knowledge",
+                "subject": "General Knowledge",
+                "color_start": "#8B5CF6",
+                "color_end": "#6D28D9",
+                "icon": "lightbulb_rounded",
+                "pages": 52,
+                "group": "general"
+            },
+            {
+                "title": "বাংলাদেশ পরিচিতি",
+                "english_title": "Introduction to Bangladesh",
+                "subject": "BGS",
+                "color_start": "#0284C7",
+                "color_end": "#0369A1",
+                "icon": "public_rounded",
+                "pages": 54,
+                "group": "general"
+            },
+            {
+                "title": "পরিবেশ পরিচিতি",
+                "english_title": "Environment Introduction",
+                "subject": "Science",
+                "color_start": "#84CC16",
+                "color_end": "#4D7C0F",
+                "icon": "nature_people_rounded",
+                "pages": 50,
+                "group": "general"
+            },
+            {
+                "title": "ধর্ম ও নৈতিক শিক্ষা",
+                "english_title": "Religion & Moral Education",
+                "subject": "Religion",
+                "color_start": "#14B8A6",
+                "color_end": "#0F766E",
+                "icon": "menu_book_rounded",
+                "pages": 56,
+                "group": "general"
+            },
+            {
+                "title": "ছবি আঁকা ও হাতের কাজ",
+                "english_title": "Drawing & Craft",
+                "subject": "Art",
+                "color_start": "#EC4899",
+                "color_end": "#BE185D",
+                "icon": "palette_rounded",
+                "pages": 56,
+                "group": "general"
+            }
+        ]
+    }
+}
