@@ -705,8 +705,8 @@
     <!-- ============================================================== -->
     <!-- MODAL 1: নতুন পরীক্ষা তৈরির ফর্ম (Create Exam Modal)           -->
     <!-- ============================================================== -->
-    <div x-show="examModal" class="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-4" style="display: none;">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl relative my-auto max-h-[92vh] overflow-y-auto" @click.away="examModal = false">
+    <div x-show="examModal" class="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-start justify-center p-3 sm:p-5 pt-8 sm:pt-12" style="display: none;">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl relative max-h-[calc(100vh-4rem)] overflow-y-auto" @click.away="examModal = false">
             <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-4 shrink-0">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg">
@@ -780,8 +780,8 @@
     <!-- ============================================================== -->
     <!-- MODAL 2: ফলাফল এন্ট্রি ফর্ম (Enter Exam Result Modal)          -->
     <!-- ============================================================== -->
-    <div x-show="resultModal" class="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-4" style="display: none;">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl relative my-auto max-h-[92vh] overflow-y-auto" @click.away="resultModal = false">
+    <div x-show="resultModal" class="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-start justify-center p-3 sm:p-5 pt-8 sm:pt-12" style="display: none;">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl relative max-h-[calc(100vh-4rem)] overflow-y-auto" @click.away="resultModal = false">
             <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-4 shrink-0">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg">
@@ -864,8 +864,8 @@
     <!-- ============================================================== -->
     <!-- MODAL 3: ডাইনামিক মার্কশিট সিস্টেম (Dynamic Multi-Row Marksheet) -->
     <!-- ============================================================== -->
-    <div x-show="dynamicMarksheetModal" class="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-start sm:items-center justify-center p-2 sm:p-4 md:p-6" style="display: none;">
-        <div class="bg-white rounded-3xl max-w-4xl w-full p-5 sm:p-6 shadow-2xl relative my-auto max-h-[92vh] flex flex-col" @click.away="dynamicMarksheetModal = false">
+    <div x-show="dynamicMarksheetModal" class="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-start justify-center p-3 sm:p-5 pt-8 sm:pt-12 pb-10" style="display: none;">
+        <div class="bg-white rounded-3xl max-w-4xl w-full p-5 sm:p-6 shadow-2xl relative max-h-[calc(100vh-5rem)] flex flex-col" @click.away="dynamicMarksheetModal = false">
             <!-- Modal Header (Always visible, non-shrinking at top) -->
             <div class="flex items-center justify-between pb-3.5 border-b border-slate-200 mb-4 shrink-0">
                 <div class="flex items-center gap-3">

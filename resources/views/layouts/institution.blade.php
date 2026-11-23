@@ -97,6 +97,11 @@
                     <span>ড্যাশবোর্ড</span>
                 </a>
 
+                <a href="{{ route('institution.academic-years') }}" class="flex items-center gap-3 px-3 py-2 rounded-lg font-medium transition {{ request()->routeIs('institution.academic-years*') ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
+                    <i class="fa-solid fa-calendar-check w-5"></i>
+                    <span>শিক্ষাবর্ষ ও এনরোলমেন্ট</span>
+                </a>
+
                 <a href="{{ route('institution.classes') }}" class="flex items-center gap-3 px-3 py-2 rounded-lg font-medium transition {{ request()->routeIs('institution.classes*') ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }}">
                     <i class="fa-solid fa-shapes w-5"></i>
                     <span>শ্রেণি ও শাখা ব্যবস্থাপনা</span>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AcademicClass;
+use App\Models\AcademicYear;
 use App\Models\Attendance;
 use App\Models\ClassRoutine;
 use App\Models\Exam;
@@ -13,6 +14,7 @@ use App\Models\Institution;
 use App\Models\Notice;
 use App\Models\Section;
 use App\Models\Student;
+use App\Models\StudentEnrollment;
 use App\Models\StudentExamSummary;
 use App\Models\Subject;
 use App\Models\Teacher;
@@ -2063,5 +2065,124 @@ class InstitutionController extends Controller
         $smsNotice = $request->boolean('send_sms') ? ' এবং সকল শিক্ষার্থীর অভিভাবকদের মোবাইলে বাল্ক SMS পাঠানো হয়েছে!' : '';
 
         return back()->with('success', 'বিজ্ঞপ্তি সফলভাবে প্রকাশিত হয়েছে'.$smsNotice);
+    }
+
+    /**
+     * Display Academic Years and Enrollments management (Point 3).
+     */
+    public function academicYears(): View
+    {
+        $institution = $this->getActiveInstitution();
+        $allInstitutions = Institution::all();
+
+        $years = $institution->academicYears()
+            ->withCount('enrollments')
+            ->orderBy('name', 'desc')
+            ->get();
+
+        $classes = $institution->academicClasses()->with('sections')->get();
+        $currentYear = $years->firstWhere('is_current', true) ?? $years->first();
+
+        $enrollments = $currentYear
+            ? $currentYear->enrollments()->with(['student', 'academicClass', 'section'])->paginate(25)
+            : collect();
+
+        return view('institution.academic_years', compact(
+            'institution',
+            'allInstitutions',
+            'years',
+            'currentYear',
+            'classes',
+            'enrollments'
+        ));
+    }
+
+    /**
+     * Store new academic year without deleting previous years.
+     */
+    public function storeAcademicYear(Request $request): RedirectResponse
+    {
+        $institution = $this->getActiveInstitution();
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:50',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+            'is_current' => 'nullable|boolean',
+        ]);
+
+        if ($request->boolean('is_current')) {
+            $institution->academicYears()->update(['is_current' => false]);
+        }
+
+        $institution->academicYears()->create([
+            'name' => $validated['name'],
+            'start_date' => $validated['start_date'],
+            'end_date' => $validated['end_date'],
+            'is_current' => $request->boolean('is_current'),
+            'status' => 'active',
+        ]);
+
+        return back()->with('success', "নতুন শিক্ষাবর্ষ '{$validated['name']}' সফলভাবে তৈরি হয়েছে! পূর্ববর্তী শিক্ষাবর্ষের সকল তথ্য সংরক্ষিত রয়েছে।");
+    }
+
+    /**
+     * Activate an academic year as the current year.
+     */
+    public function activateAcademicYear(AcademicYear $year): RedirectResponse
+    {
+        $institution = $this->getActiveInstitution();
+        if ($year->institution_id !== $institution->id) {
+            abort(403);
+        }
+
+        $institution->academicYears()->update(['is_current' => false]);
+        $year->update(['is_current' => true, 'status' => 'active']);
+
+        return back()->with('success', "শিক্ষাবর্ষ '{$year->name}' বর্তমান শিক্ষাবর্ষ হিসেবে সক্রিয় করা হয়েছে।");
+    }
+
+    /**
+     * Enroll or promote students into the academic year.
+     */
+    public function enrollStudentsInYear(AcademicYear $year, Request $request): RedirectResponse
+    {
+        $institution = $this->getActiveInstitution();
+        if ($year->institution_id !== $institution->id) {
+            abort(403);
+        }
+
+        $validated = $request->validate([
+            'student_id' => 'required|exists:students,id',
+            'academic_class_id' => 'required|exists:academic_classes,id',
+            'section_id' => 'nullable|exists:sections,id',
+            'roll_number' => 'nullable|integer',
+        ]);
+
+        $student = Student::findOrFail($validated['student_id']);
+
+        StudentEnrollment::updateOrCreate(
+            [
+                'institution_id' => $institution->id,
+                'academic_year_id' => $year->id,
+                'student_id' => $student->id,
+            ],
+            [
+                'academic_class_id' => $validated['academic_class_id'],
+                'section_id' => $validated['section_id'] ?? null,
+                'roll_number' => $validated['roll_number'] ?? $student->roll_number,
+                'enrollment_date' => Carbon::today(),
+                'status' => 'enrolled',
+            ]
+        );
+
+        // Update student current class
+        $student->update([
+            'academic_class_id' => $validated['academic_class_id'],
+            'section_id' => $validated['section_id'] ?? null,
+            'roll_number' => $validated['roll_number'] ?? $student->roll_number,
+        ]);
+
+        return back()->with('success', "শিক্ষার্থী '{$student->name}' শিক্ষাবর্ষ '{$year->name}'-এ সফলভাবে এনরোল/স্থানান্তর করা হয়েছে।");
     }
 }

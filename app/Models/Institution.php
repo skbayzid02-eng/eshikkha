@@ -443,4 +443,34 @@ class Institution extends Model
     {
         return $this->hasMany(ClassRoutine::class);
     }
+
+    public function academicYears(): HasMany
+    {
+        return $this->hasMany(AcademicYear::class);
+    }
+
+    public function enrollments(): HasMany
+    {
+        return $this->hasMany(StudentEnrollment::class);
+    }
+
+    public function gateAttendances(): HasMany
+    {
+        return $this->hasMany(GateAttendance::class);
+    }
+
+    public function classAttendances(): HasMany
+    {
+        return $this->hasMany(ClassAttendance::class);
+    }
+
+    public function classReports(): HasMany
+    {
+        return $this->hasMany(ClassReport::class);
+    }
+
+    public function pushNotifications(): HasMany
+    {
+        return $this->hasMany(PushNotification::class);
+    }
 }

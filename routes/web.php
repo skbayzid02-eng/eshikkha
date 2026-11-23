@@ -64,4 +64,8 @@ Route::prefix('institution')->name('institution.')->group(function () {
     Route::delete('/routines/{routine}', [InstitutionController::class, 'destroyRoutine'])->name('routines.destroy');
     Route::get('/notices', [InstitutionController::class, 'notices'])->name('notices');
     Route::post('/notices', [InstitutionController::class, 'storeNotice'])->name('notices.store');
+    Route::get('/academic-years', [InstitutionController::class, 'academicYears'])->name('academic-years');
+    Route::post('/academic-years', [InstitutionController::class, 'storeAcademicYear'])->name('academic-years.store');
+    Route::post('/academic-years/{year}/activate', [InstitutionController::class, 'activateAcademicYear'])->name('academic-years.activate');
+    Route::post('/academic-years/{year}/enroll-students', [InstitutionController::class, 'enrollStudentsInYear'])->name('academic-years.enroll');
 });

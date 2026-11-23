@@ -4,15 +4,20 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
+use App\Models\ClassAttendance;
+use App\Models\ClassReport;
 use App\Models\ClassRoutine;
 use App\Models\ExamResult;
 use App\Models\Fee;
+use App\Models\GateAttendance;
 use App\Models\GuardianStudent;
 use App\Models\Notice;
+use App\Models\PushNotification;
 use App\Models\Student;
 use App\Models\StudentLeave;
 use App\Models\StudentMessage;
 use App\Models\User;
+use App\Models\UserDeviceToken;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -35,11 +40,6 @@ class GuardianApiController extends Controller
             $q->where('email', $validated['identifier'])
                 ->orWhere('phone', $validated['identifier']);
         })->where('role', 'guardian')->first();
-
-        // Fallback: also check if user exists with any role or create demo login if requested
-        if (! $user) {
-            $user = User::where('role', 'guardian')->first();
-        }
 
         if (! $user || ! Hash::check($validated['password'], $user->password)) {
             return response()->json([
@@ -71,9 +71,11 @@ class GuardianApiController extends Controller
     {
         $guardian = $request->user();
 
-        // If not authenticated or guest demo
-        if (! $guardian) {
-            $guardian = User::where('role', 'guardian')->first();
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json([
+                'success' => false,
+                'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট। (Unauthorized guardian)',
+            ], 401);
         }
 
         $links = GuardianStudent::where('guardian_user_id', $guardian->id)
@@ -179,7 +181,14 @@ class GuardianApiController extends Controller
      */
     public function getChildDashboard(Request $request, int $studentId): JsonResponse
     {
-        $guardian = $request->user() ?? User::where('role', 'guardian')->first();
+        $guardian = $request->user();
+
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json([
+                'success' => false,
+                'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।',
+            ], 401);
+        }
 
         // Verify guardianship
         $link = GuardianStudent::where('guardian_user_id', $guardian->id)
@@ -412,7 +421,14 @@ class GuardianApiController extends Controller
      */
     public function requestLink(Request $request): JsonResponse
     {
-        $guardian = $request->user() ?? User::where('role', 'guardian')->first();
+        $guardian = $request->user();
+
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json([
+                'success' => false,
+                'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।',
+            ], 401);
+        }
 
         $validated = $request->validate([
             'student_id' => 'required|exists:students,id',
@@ -442,6 +458,7 @@ class GuardianApiController extends Controller
                 'student_id' => $student->id,
             ],
             [
+                'institution_id' => $student->institution_id,
                 'relationship' => $validated['relationship'],
                 'status' => 'pending',
                 'verification_otp' => $otp,
@@ -464,7 +481,14 @@ class GuardianApiController extends Controller
      */
     public function verifyOtp(Request $request): JsonResponse
     {
-        $guardian = $request->user() ?? User::where('role', 'guardian')->first();
+        $guardian = $request->user();
+
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json([
+                'success' => false,
+                'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।',
+            ], 401);
+        }
 
         $validated = $request->validate([
             'student_id' => 'required|exists:students,id',
@@ -555,6 +579,27 @@ class GuardianApiController extends Controller
      */
     public function childAcademicResults(Request $request, int $studentId): JsonResponse
     {
+        $guardian = $request->user();
+
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json([
+                'success' => false,
+                'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।',
+            ], 401);
+        }
+
+        $link = GuardianStudent::where('guardian_user_id', $guardian->id)
+            ->where('student_id', $studentId)
+            ->where('status', 'approved')
+            ->first();
+
+        if (! $link) {
+            return response()->json([
+                'success' => false,
+                'message' => 'এই শিক্ষার্থীর ফলাফল দেখার অনুমতি আপনার অ্যাকাউন্টে নেই।',
+            ], 403);
+        }
+
         $student = Student::with(['academicClass', 'section', 'institution'])->findOrFail($studentId);
         $examId = $request->query('exam_id');
 
@@ -575,10 +620,199 @@ class GuardianApiController extends Controller
      */
     public function childMarksheetPdf(Request $request, int $studentId, int $examId)
     {
+        $guardian = $request->user();
+
+        if (! $guardian || $guardian->role !== 'guardian') {
+            abort(401, 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।');
+        }
+
+        $link = GuardianStudent::where('guardian_user_id', $guardian->id)
+            ->where('student_id', $studentId)
+            ->where('status', 'approved')
+            ->first();
+
+        if (! $link) {
+            abort(403, 'এই শিক্ষার্থীর মার্কশিট দেখার অনুমতি আপনার নেই।');
+        }
+
         $student = Student::with(['academicClass', 'section', 'institution'])->findOrFail($studentId);
         $studentApiController = app(StudentApiController::class);
         $details = $studentApiController->buildAcademicDetails($student, $examId);
 
         return view('marksheet_pdf', compact('details'));
+    }
+
+    /**
+     * Get child's school gate entry/exit attendance for guardian.
+     */
+    public function childGateAttendance(Request $request, int $studentId): JsonResponse
+    {
+        $guardian = $request->user();
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।'], 401);
+        }
+
+        $link = GuardianStudent::where('guardian_user_id', $guardian->id)
+            ->where('student_id', $studentId)
+            ->where('status', 'approved')
+            ->first();
+
+        if (! $link) {
+            return response()->json(['success' => false, 'message' => 'অনুমতি নেই।'], 403);
+        }
+
+        $records = GateAttendance::where('student_id', $studentId)->orderBy('date', 'desc')->take(60)->get();
+
+        return response()->json([
+            'success' => true,
+            'student_id' => $studentId,
+            'records' => $records,
+        ]);
+    }
+
+    /**
+     * Get child's period/class attendance for guardian.
+     */
+    public function childClassAttendance(Request $request, int $studentId): JsonResponse
+    {
+        $guardian = $request->user();
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।'], 401);
+        }
+
+        $link = GuardianStudent::where('guardian_user_id', $guardian->id)
+            ->where('student_id', $studentId)
+            ->where('status', 'approved')
+            ->first();
+
+        if (! $link) {
+            return response()->json(['success' => false, 'message' => 'অনুমতি নেই।'], 403);
+        }
+
+        $records = ClassAttendance::where('student_id', $studentId)
+            ->with(['academicClass', 'section', 'teacher'])
+            ->orderBy('date', 'desc')
+            ->take(60)
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'student_id' => $studentId,
+            'records' => $records,
+        ]);
+    }
+
+    /**
+     * Get child's daily class reports for guardian.
+     */
+    public function childClassReports(Request $request, int $studentId): JsonResponse
+    {
+        $guardian = $request->user();
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।'], 401);
+        }
+
+        $link = GuardianStudent::where('guardian_user_id', $guardian->id)
+            ->where('student_id', $studentId)
+            ->where('status', 'approved')
+            ->first();
+
+        if (! $link) {
+            return response()->json(['success' => false, 'message' => 'অনুমতি নেই।'], 403);
+        }
+
+        $student = Student::findOrFail($studentId);
+
+        $reports = ClassReport::where('institution_id', $student->institution_id)
+            ->where('academic_class_id', $student->academic_class_id)
+            ->when($student->section_id, function ($q) use ($student) {
+                $q->where(function ($sq) use ($student) {
+                    $sq->where('section_id', $student->section_id)->orWhereNull('section_id');
+                });
+            })
+            ->with(['teacher', 'academicClass', 'section'])
+            ->orderBy('date', 'desc')
+            ->take(30)
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'student_id' => $studentId,
+            'reports' => $reports,
+        ]);
+    }
+
+    /**
+     * Register or update push notification device token for guardian.
+     */
+    public function storeDeviceToken(Request $request): JsonResponse
+    {
+        $guardian = $request->user();
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।'], 401);
+        }
+
+        $validated = $request->validate([
+            'device_token' => 'required|string|max:500',
+            'platform' => 'nullable|string|in:android,ios,web',
+        ]);
+
+        UserDeviceToken::updateOrCreate(
+            [
+                'user_id' => $guardian->id,
+                'device_token' => $validated['device_token'],
+            ],
+            [
+                'institution_id' => $guardian->institution_id ?? 1,
+                'platform' => $validated['platform'] ?? 'android',
+            ]
+        );
+
+        return response()->json([
+            'success' => true,
+            'message' => 'ডিভাইস টোকেন সংরক্ষিত হয়েছে।',
+        ]);
+    }
+
+    /**
+     * Get guardian's push notifications list.
+     */
+    public function notifications(Request $request): JsonResponse
+    {
+        $guardian = $request->user();
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।'], 401);
+        }
+
+        $notifications = PushNotification::where('user_id', $guardian->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(20);
+
+        return response()->json([
+            'success' => true,
+            'notifications' => $notifications,
+        ]);
+    }
+
+    /**
+     * Mark a push notification as read for guardian.
+     */
+    public function markNotificationRead(Request $request, int $id): JsonResponse
+    {
+        $guardian = $request->user();
+        if (! $guardian || $guardian->role !== 'guardian') {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত অভিভাবক অ্যাকাউন্ট।'], 401);
+        }
+
+        $notification = PushNotification::where('user_id', $guardian->id)->findOrFail($id);
+        $notification->update([
+            'is_read' => true,
+            'read_at' => now(),
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'নোটিফিকেশন পঠিত হিসেবে চিহ্নিত করা হয়েছে।',
+        ]);
     }
 }

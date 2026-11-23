@@ -61,13 +61,49 @@ class GuardianApiTest extends TestCase
 
     public function test_guardian_can_lookup_student_by_admission_id(): void
     {
-        $response = $this->postJson('/api/guardian/children/lookup', [
+        $guardian = User::where('role', 'guardian')->first();
+
+        $response = $this->actingAs($guardian, 'sanctum')->postJson('/api/guardian/children/lookup', [
             'student_id' => 'DRMC-ADM-2024-001',
         ]);
 
         $response->assertStatus(200)
             ->assertJsonPath('success', true)
             ->assertJsonPath('student.name', 'তানভীর আহমেদ');
+    }
+
+    public function test_unauthenticated_guardian_request_returns_unauthorized(): void
+    {
+        $response = $this->getJson('/api/guardian/children');
+
+        $response->assertStatus(401);
+    }
+
+    public function test_guardian_cannot_access_unlinked_child(): void
+    {
+        $guardian = User::where('role', 'guardian')->first();
+
+        // Create an unlinked student
+        $institution = Institution::first();
+        $class = AcademicClass::where('institution_id', $institution->id)->first();
+        $section = Section::where('academic_class_id', $class->id)->first();
+        $unlinkedStudent = Student::create([
+            'institution_id' => $institution->id,
+            'academic_class_id' => $class->id,
+            'section_id' => $section->id,
+            'admission_number' => 'UNLINKED-001',
+            'roll_number' => 88,
+            'name' => 'অননুমোদিত শিক্ষার্থী',
+            'gender' => 'male',
+            'guardian_name' => 'অন্য অভিভাবক',
+            'guardian_phone' => '01999887766',
+            'status' => 'active',
+        ]);
+
+        $response = $this->actingAs($guardian, 'sanctum')->getJson("/api/guardian/children/{$unlinkedStudent->id}/dashboard");
+
+        $response->assertStatus(403)
+            ->assertJsonPath('success', false);
     }
 
     public function test_guardian_can_request_link_and_verify_otp(): void

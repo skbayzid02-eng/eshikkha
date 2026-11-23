@@ -3,18 +3,23 @@
 namespace Database\Seeders;
 
 use App\Models\AcademicClass;
+use App\Models\AcademicYear;
 use App\Models\Attendance;
+use App\Models\ClassAttendance;
+use App\Models\ClassReport;
 use App\Models\ClassRoutine;
 use App\Models\Exam;
 use App\Models\ExamResult;
 use App\Models\ExamSchedule;
 use App\Models\Fee;
+use App\Models\GateAttendance;
 use App\Models\GuardianStudent;
 use App\Models\Homework;
 use App\Models\Institution;
 use App\Models\Notice;
 use App\Models\Section;
 use App\Models\Student;
+use App\Models\StudentEnrollment;
 use App\Models\StudentExamSummary;
 use App\Models\StudentLeave;
 use App\Models\StudentMessage;
@@ -208,9 +213,20 @@ class DatabaseSeeder extends Seeder
             'room_number' => 'CSE Building - Lab 3',
         ]);
 
-        // 5. Teachers
+        // 5. Teachers & Teacher User
+        $teacherUser1 = User::create([
+            'institution_id' => $drmc->id,
+            'name' => 'মুহাম্মদ রফিকুল ইসলাম (Teacher)',
+            'email' => 'teacher@drmc.edu.bd',
+            'phone' => '01715000001',
+            'password' => $password,
+            'role' => 'teacher',
+            'status' => 'active',
+        ]);
+
         $teacher1 = Teacher::create([
             'institution_id' => $drmc->id,
+            'user_id' => $teacherUser1->id,
             'employee_id' => 'EMP-DRMC-01',
             'name' => 'মুহাম্মদ রফিকুল ইসলাম',
             'designation' => 'সিনিয়র সহকারী শিক্ষক (গণিত)',
@@ -347,6 +363,7 @@ class DatabaseSeeder extends Seeder
         $children = [$child1, $child2, $child3, $child4];
         foreach ($children as $c) {
             GuardianStudent::create([
+                'institution_id' => $c->institution_id,
                 'guardian_user_id' => $guardian->id,
                 'student_id' => $c->id,
                 'relationship' => 'father',
@@ -354,6 +371,74 @@ class DatabaseSeeder extends Seeder
                 'verified_at' => $today,
             ]);
         }
+
+        // 8.1 Create Academic Years & Student Enrollments (Point 3)
+        foreach ([$rajshahiCollegiate, $drmc, $tamirulMillat, $sust] as $inst) {
+            $ay2026 = AcademicYear::firstOrCreate(
+                ['institution_id' => $inst->id, 'name' => '2026'],
+                ['start_date' => '2026-01-01', 'end_date' => '2026-12-31', 'is_current' => true, 'status' => 'active']
+            );
+            $ay2025 = AcademicYear::firstOrCreate(
+                ['institution_id' => $inst->id, 'name' => '2025'],
+                ['start_date' => '2025-01-01', 'end_date' => '2025-12-31', 'is_current' => false, 'status' => 'completed']
+            );
+
+            foreach ($inst->students as $st) {
+                StudentEnrollment::firstOrCreate(
+                    ['institution_id' => $inst->id, 'academic_year_id' => $ay2026->id, 'student_id' => $st->id],
+                    [
+                        'academic_class_id' => $st->academic_class_id,
+                        'section_id' => $st->section_id,
+                        'roll_number' => $st->roll_number,
+                        'enrollment_date' => '2026-01-01',
+                        'status' => 'enrolled',
+                    ]
+                );
+            }
+        }
+
+        // 8.2 Gate Attendance & Class Attendance (Point 4)
+        foreach ($children as $c) {
+            GateAttendance::create([
+                'institution_id' => $c->institution_id,
+                'student_id' => $c->id,
+                'date' => $today->toDateString(),
+                'entry_time' => '07:45:00',
+                'exit_time' => '13:30:00',
+                'status' => 'present',
+                'gate_number' => 'Gate 1',
+                'remarks' => 'RFID Smart Gate Scan',
+            ]);
+
+            ClassAttendance::create([
+                'institution_id' => $c->institution_id,
+                'student_id' => $c->id,
+                'academic_class_id' => $c->academic_class_id,
+                'section_id' => $c->section_id,
+                'period_number' => 1,
+                'subject_name' => 'বাংলা ১ম পত্র',
+                'date' => $today->toDateString(),
+                'status' => 'present',
+                'remarks' => ' উপস্থিত',
+            ]);
+        }
+
+        // 8.3 Class Report & Cancellation Sample (Point 5)
+        ClassReport::create([
+            'institution_id' => $drmc->id,
+            'teacher_id' => $teacher1->id,
+            'academic_class_id' => $class11Drmc->id,
+            'section_id' => $secDrmc->id,
+            'subject_name' => 'সাধারণ গণিত',
+            'period_number' => 1,
+            'date' => $today->toDateString(),
+            'class_conducted' => true,
+            'topics_covered' => 'অধ্যায় ৩: বীজগণিতীয় রাশি ও সূত্রাবলী আলোচনা সম্পন্ন',
+            'homework_assigned' => 'অনুশীলনী ৩.১ এর ৫ ও ৬ নম্বর সমস্যা সমাধান',
+            'present_count' => 42,
+            'absent_count' => 3,
+            'remarks' => 'শিক্ষার্থীরা মনোযোগের সাথে অংশগ্রহণ করেছে',
+        ]);
 
         // 9. Today's Attendance & Comprehensive Attendance History for all Children
         Attendance::create([

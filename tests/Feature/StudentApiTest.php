@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Homework;
 use App\Models\Student;
 use App\Models\StudentMessage;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -16,6 +17,29 @@ class StudentApiTest extends TestCase
     {
         parent::setUp();
         $this->seed();
+        $studentUser = User::where('email', 'student@drmc.edu.bd')->first() ?: User::where('role', 'student')->first();
+        if ($studentUser) {
+            $this->actingAs($studentUser, 'sanctum');
+        }
+    }
+
+    public function test_unauthenticated_request_to_student_dashboard_returns_unauthorized(): void
+    {
+        $this->app['auth']->forgetGuards();
+
+        $response = $this->getJson('/api/student/dashboard');
+
+        $response->assertStatus(401);
+    }
+
+    public function test_fallback_system_is_disabled_and_does_not_leak_other_student_data(): void
+    {
+        $this->app['auth']->forgetGuards();
+
+        // Guest attempting to query with ?student_id=2
+        $response = $this->getJson('/api/student/profile?student_id=2');
+
+        $response->assertStatus(401);
     }
 
     public function test_student_can_login_with_email_and_password(): void
@@ -565,10 +589,12 @@ class StudentApiTest extends TestCase
             ->assertJsonPath('student.name', 'Aaryan Hasan')
             ->assertJsonPath('student.roll_number', 1);
 
+        $registeredUser = User::where('email', 'aaryan.login@eshikkha.edu.bd')->first();
         $studentId = $loginResponse->json('student.id');
 
         // 3. Verify Home / Portal data reflects Class 1 student
-        $portalResponse = $this->getJson("/api/student/portal-data?student_id={$studentId}");
+        $portalResponse = $this->actingAs($registeredUser, 'sanctum')
+            ->getJson("/api/student/portal-data?student_id={$studentId}");
         $portalResponse->assertStatus(200)
             ->assertJson([
                 'success' => true,
@@ -599,9 +625,11 @@ class StudentApiTest extends TestCase
             'class_name' => 'Class 1',
         ])->assertStatus(201);
 
+        $regUser = User::where('email', 'muntaha.class1@eshikkha.edu.bd')->first();
         $studentId = $regResponse->json('student.id');
 
-        $studyResponse = $this->getJson("/api/student/study?student_id={$studentId}");
+        $studyResponse = $this->actingAs($regUser, 'sanctum')
+            ->getJson("/api/student/study?student_id={$studentId}");
         $studyResponse->assertStatus(200)
             ->assertJson([
                 'success' => true,

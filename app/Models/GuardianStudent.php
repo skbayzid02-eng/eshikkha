@@ -11,6 +11,7 @@ class GuardianStudent extends Model
     use HasFactory;
 
     protected $fillable = [
+        'institution_id',
         'guardian_user_id',
         'student_id',
         'relationship',
@@ -24,6 +25,11 @@ class GuardianStudent extends Model
         return [
             'verified_at' => 'datetime',
         ];
+    }
+
+    public function institution(): BelongsTo
+    {
+        return $this->belongsTo(Institution::class);
     }
 
     public function guardian(): BelongsTo

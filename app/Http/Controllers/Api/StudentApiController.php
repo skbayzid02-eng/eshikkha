@@ -5,14 +5,19 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\AcademicClass;
 use App\Models\Attendance;
+use App\Models\ClassAttendance;
+use App\Models\ClassReport;
 use App\Models\ClassRoutine;
 use App\Models\Exam;
 use App\Models\ExamResult;
 use App\Models\ExamSchedule;
 use App\Models\Fee;
+use App\Models\GateAttendance;
+use App\Models\GuardianStudent;
 use App\Models\Homework;
 use App\Models\Institution;
 use App\Models\Notice;
+use App\Models\PushNotification;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\StudentExamSummary;
@@ -20,6 +25,7 @@ use App\Models\StudentLeave;
 use App\Models\StudentMessage;
 use App\Models\Textbook;
 use App\Models\User;
+use App\Models\UserDeviceToken;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -30,35 +36,62 @@ class StudentApiController extends Controller
 {
     /**
      * Resolve the target student for the current request.
+     * Strictly requires authentication and permission checks. No demo or unauthenticated fallbacks.
      */
     protected function resolveStudent(Request $request): ?Student
     {
         $user = $request->user();
 
-        if ($user) {
-            $student = Student::where('user_id', $user->id)
+        if (! $user) {
+            return null;
+        }
+
+        // 1. If user is a student, return their own linked student profile
+        if ($user->role === 'student') {
+            return Student::where('user_id', $user->id)
+                ->where('institution_id', $user->institution_id)
                 ->with(['academicClass', 'section', 'institution'])
                 ->first();
+        }
 
-            if ($student) {
-                return $student;
+        // 2. If user is a guardian, verify that requested child is officially approved and linked
+        if ($user->role === 'guardian') {
+            $studentId = $request->query('student_id') ?? $request->input('student_id');
+
+            if (! $studentId) {
+                $firstLink = GuardianStudent::where('guardian_user_id', $user->id)
+                    ->where('status', 'approved')
+                    ->first();
+                $studentId = $firstLink?->student_id;
             }
 
-            if ($user->institution_id) {
-                $student = Student::where('institution_id', $user->institution_id)
+            if (! $studentId) {
+                return null;
+            }
+
+            $isLinked = GuardianStudent::where('guardian_user_id', $user->id)
+                ->where('student_id', $studentId)
+                ->where('status', 'approved')
+                ->exists();
+
+            if (! $isLinked) {
+                return null;
+            }
+
+            return Student::with(['academicClass', 'section', 'institution'])->find($studentId);
+        }
+
+        // 3. If institution admin or teacher, scope strictly by institution
+        if (in_array($user->role, ['institution_admin', 'teacher'])) {
+            $studentId = $request->query('student_id') ?? $request->input('student_id');
+            if ($studentId) {
+                return Student::where('institution_id', $user->institution_id)
                     ->with(['academicClass', 'section', 'institution'])
-                    ->first();
-                if ($student) {
-                    return $student;
-                }
+                    ->find($studentId);
             }
         }
 
-        // Support optional query parameter or fallback to Child 2 (Tanvir Ahmed)
-        $studentId = $request->query('student_id', 2);
-
-        return Student::with(['academicClass', 'section', 'institution'])->find($studentId)
-            ?? Student::with(['academicClass', 'section', 'institution'])->first();
+        return null;
     }
 
     /**
@@ -2176,5 +2209,157 @@ class StudentApiController extends Controller
         $html = view('textbook_pdf', ['book' => $textbook])->render();
 
         return response($html, 200, ['Content-Type' => 'text/html; charset=UTF-8']);
+    }
+
+    /**
+     * Get student's school/gate entry and exit attendance history.
+     */
+    public function gateAttendance(Request $request): JsonResponse
+    {
+        $student = $this->resolveStudent($request);
+        if (! $student) {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত শিক্ষার্থী তথ্য।'], 403);
+        }
+
+        $records = GateAttendance::where('student_id', $student->id)
+            ->where('institution_id', $student->institution_id)
+            ->orderBy('date', 'desc')
+            ->take(60)
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'student_id' => $student->id,
+            'student_name' => $student->name,
+            'records' => $records,
+        ]);
+    }
+
+    /**
+     * Get student's period/class-wise attendance history.
+     */
+    public function classAttendance(Request $request): JsonResponse
+    {
+        $student = $this->resolveStudent($request);
+        if (! $student) {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত শিক্ষার্থী তথ্য।'], 403);
+        }
+
+        $records = ClassAttendance::where('student_id', $student->id)
+            ->where('institution_id', $student->institution_id)
+            ->with(['academicClass', 'section', 'teacher'])
+            ->orderBy('date', 'desc')
+            ->take(60)
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'student_id' => $student->id,
+            'student_name' => $student->name,
+            'records' => $records,
+        ]);
+    }
+
+    /**
+     * Get daily class reports (topics covered, homework, or class cancellation reason) for student's class.
+     */
+    public function classReports(Request $request): JsonResponse
+    {
+        $student = $this->resolveStudent($request);
+        if (! $student) {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত শিক্ষার্থী তথ্য।'], 403);
+        }
+
+        $reports = ClassReport::where('institution_id', $student->institution_id)
+            ->where('academic_class_id', $student->academic_class_id)
+            ->when($student->section_id, function ($q) use ($student) {
+                $q->where(function ($sq) use ($student) {
+                    $sq->where('section_id', $student->section_id)->orWhereNull('section_id');
+                });
+            })
+            ->with(['teacher', 'academicClass', 'section'])
+            ->orderBy('date', 'desc')
+            ->take(30)
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'student_id' => $student->id,
+            'reports' => $reports,
+        ]);
+    }
+
+    /**
+     * Register or update push notification device token.
+     */
+    public function storeDeviceToken(Request $request): JsonResponse
+    {
+        $user = $request->user();
+        if (! $user) {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত ব্যবহারকারী।'], 401);
+        }
+
+        $validated = $request->validate([
+            'device_token' => 'required|string|max:500',
+            'platform' => 'nullable|string|in:android,ios,web',
+        ]);
+
+        UserDeviceToken::updateOrCreate(
+            [
+                'user_id' => $user->id,
+                'device_token' => $validated['device_token'],
+            ],
+            [
+                'institution_id' => $user->institution_id ?? 1,
+                'platform' => $validated['platform'] ?? 'android',
+            ]
+        );
+
+        return response()->json([
+            'success' => true,
+            'message' => 'ডিভাইস টোকেন সফলভাবে সংরক্ষিত হয়েছে।',
+        ]);
+    }
+
+    /**
+     * Get student's push notifications list.
+     */
+    public function notifications(Request $request): JsonResponse
+    {
+        $user = $request->user();
+        if (! $user) {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত ব্যবহারকারী।'], 401);
+        }
+
+        $notifications = PushNotification::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(20);
+
+        return response()->json([
+            'success' => true,
+            'notifications' => $notifications,
+        ]);
+    }
+
+    /**
+     * Mark a push notification as read.
+     */
+    public function markNotificationRead(Request $request, int $id): JsonResponse
+    {
+        $user = $request->user();
+        if (! $user) {
+            return response()->json(['success' => false, 'message' => 'অননুমোদিত ব্যবহারকারী।'], 401);
+        }
+
+        $notification = PushNotification::where('user_id', $user->id)->findOrFail($id);
+        $notification->update([
+            'is_read' => true,
+            'read_at' => now(),
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'নোটিফিকেশন পঠিত হিসেবে চিহ্নিত করা হয়েছে।',
+        ]);
     }
 }

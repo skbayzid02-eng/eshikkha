@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'teacher_api_service.dart';
 
 void main() {
   runApp(const EShikkhaTeacherApp());
 }
 
-class EShikkhaTeacherApp extends StatূelessWidget {
+class EShikkhaTeacherApp extends StatelessWidget {
   const EShikkhaTeacherApp({super.key});
 
   @override
@@ -56,16 +57,27 @@ class _TeacherLoginScreenState extends State<TeacherLoginScreen> {
   final _passwordController = TextEditingController(text: 'password');
   bool _isLoading = false;
 
-  void _login() {
+  void _login() async {
     setState(() => _isLoading = true);
-    Future.delayed(const Duration(milliseconds: 600), () {
-      if (mounted) {
-        setState(() => _isLoading = false);
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const TeacherMainNavigation()),
-        );
-      }
-    });
+    final res = await TeacherApiService.login(
+      _emailController.text.trim(),
+      _passwordController.text.trim(),
+    );
+    if (!mounted) return;
+    setState(() => _isLoading = false);
+
+    if (res['success'] == true) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const TeacherMainNavigation()),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res['message'] ?? 'লগইন ব্যর্থ হয়েছে'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   @override
@@ -519,20 +531,103 @@ class TeacherAttendanceTab extends StatefulWidget {
 
 class _TeacherAttendanceTabState extends State<TeacherAttendanceTab> {
   String _selectedClass = 'দশম শ্রেণি (পদ্মা শাখা)';
+  bool _isSaving = false;
   final List<Map<String, dynamic>> _students = [
-    {'roll': 1, 'name': 'তানভীর আহমেদ', 'status': 'present'},
-    {'roll': 2, 'name': 'মাহমুদুল হাসান', 'status': 'present'},
-    {'roll': 3, 'name': 'সাদিয়া ইসলাম রিমা', 'status': 'absent'},
-    {'roll': 4, 'name': 'আরিফুল ইসলাম', 'status': 'present'},
-    {'roll': 5, 'name': 'নুসরাত জাহান', 'status': 'present'},
-    {'roll': 6, 'name': 'সাইফুল হক', 'status': 'late'},
+    {'student_id': 2, 'roll': 1, 'name': 'তানভীর আহমেদ', 'status': 'present'},
+    {'student_id': 3, 'roll': 2, 'name': 'মাহমুদুল হাসান', 'status': 'present'},
+    {'student_id': 4, 'roll': 3, 'name': 'সাদিয়া ইসলাম রিমা', 'status': 'absent'},
+    {'student_id': 5, 'roll': 4, 'name': 'আরিফুল ইসলাম', 'status': 'present'},
+    {'student_id': 6, 'roll': 5, 'name': 'নুসরাত জাহান', 'status': 'present'},
+    {'student_id': 7, 'roll': 6, 'name': 'সাইফুল হক', 'status': 'late'},
   ];
 
-  void _saveAttendance() {
+  void _saveAttendance() async {
+    setState(() => _isSaving = true);
+    final attendances = _students.map((s) => {
+      'student_id': s['student_id'] ?? 2,
+      'status': s['status'] ?? 'present',
+    }).toList();
+
+    final nowStr = DateTime.now().toIso8601String().substring(0, 10);
+    final res = await TeacherApiService.submitClassAttendance(
+      academicClassId: 2,
+      date: nowStr,
+      attendances: attendances,
+    );
+
+    if (!mounted) return;
+    setState(() => _isSaving = false);
+
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('✅ উপস্থিতি সফলভাবে সংরক্ষিত হয়েছে এবং অনুপস্থিত শিক্ষার্থীদের অভিভাবককে SMS পাঠানো হয়েছে!'),
-        backgroundColor: Color(0xFF059669),
+      SnackBar(
+        content: Text(res['message'] ?? 'উপস্থিতি সফলভাবে সংরক্ষিত হয়েছে!'),
+        backgroundColor: res['success'] == true ? const Color(0xFF059669) : Colors.red,
+      ),
+    );
+  }
+
+  void _openClassReportDialog() {
+    final topicsCtrl = TextEditingController();
+    final homeworkCtrl = TextEditingController();
+    final reasonCtrl = TextEditingController();
+    bool classConducted = true;
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setSheetState) => Padding(
+          padding: EdgeInsets.only(bottom: MediaQuery.of(ctx).viewInsets.bottom, left: 20, right: 20, top: 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Text('ক্লাস রিপোর্ট ও হোমওয়ার্ক এন্ট্রি', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  const Text('ক্লাস কি অনুষ্ঠিত হয়েছে?'),
+                  const Spacer(),
+                  Switch(
+                    value: classConducted,
+                    activeColor: const Color(0xFF059669),
+                    onChanged: (val) => setSheetState(() => classConducted = val),
+                  ),
+                ],
+              ),
+              if (classConducted) ...[
+                TextField(controller: topicsCtrl, decoration: const InputDecoration(labelText: 'পাঠদানকৃত বিষয়সমূহ (Topics Covered)')),
+                const SizedBox(height: 8),
+                TextField(controller: homeworkCtrl, decoration: const InputDecoration(labelText: 'হোমওয়ার্ক / অ্যাসাইনমেন্ট (Homework)')),
+              ] else ...[
+                TextField(controller: reasonCtrl, decoration: const InputDecoration(labelText: 'ক্লাস না হওয়ার সুনির্দিষ্ট কারণ (Cancellation Reason)', hintText: 'যেমন: শিক্ষক প্রশিক্ষণ / জাতীয় ছুটি')),
+              ],
+              const SizedBox(height: 16),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF059669), foregroundColor: Colors.white),
+                onPressed: () async {
+                  final nowStr = DateTime.now().toIso8601String().substring(0, 10);
+                  final res = await TeacherApiService.submitClassReport(
+                    academicClassId: 2,
+                    date: nowStr,
+                    classConducted: classConducted,
+                    topicsCovered: topicsCtrl.text.trim(),
+                    homeworkAssigned: homeworkCtrl.text.trim(),
+                    cancellationReason: reasonCtrl.text.trim(),
+                  );
+                  Navigator.pop(ctx);
+                  if (!mounted) return;
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(res['message'] ?? 'রিপোর্ট সংরক্ষিত হয়েছে!'), backgroundColor: const Color(0xFF059669)),
+                  );
+                },
+                child: const Text('রিপোর্ট সংরক্ষণ করুন'),
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -542,6 +637,13 @@ class _TeacherAttendanceTabState extends State<TeacherAttendanceTab> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('হাজিরা গ্রহণ (Take Attendance)', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.assignment_outlined, color: Color(0xFF059669)),
+            tooltip: 'ক্লাস রিপোর্ট ও হোমওয়ার্ক',
+            onPressed: _openClassReportDialog,
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -762,10 +864,23 @@ class _TeacherMarksTabState extends State<TeacherMarksTab> {
 
           const SizedBox(height: 16),
           ElevatedButton(
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('✅ নম্বর ও জিপিএ সফলভাবে সংরক্ষিত হয়েছে!'), backgroundColor: Color(0xFF059669)),
+            onPressed: () async {
+              final res = await TeacherApiService.submitMarks(
+                examId: 1,
+                subjectId: 1,
+                results: [
+                  {'student_id': 2, 'obtained_marks': 85},
+                  {'student_id': 3, 'obtained_marks': 92},
+                ],
               );
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(res['message'] ?? 'নম্বর ও জিপিএ সফলভাবে সংরক্ষিত হয়েছে!'),
+                  backgroundColor: const Color(0xFF059669),
+                ),
+              );
+            },
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF059669),

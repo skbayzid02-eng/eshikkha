@@ -4670,4 +4670,124 @@ class ApiService {
       },
     };
   }
+
+  // ==========================================
+  // MULTI-TENANT ATTENDANCE & CLASS REPORTS
+  // ==========================================
+  static Future<Map<String, dynamic>> getStudentGateAttendance() async {
+    try {
+      final client = HttpClient()..connectionTimeout = const Duration(seconds: 4);
+      final request = await client.getUrl(Uri.parse('$studentBaseUrl/gate-attendance'));
+      request.headers.set('accept', 'application/json');
+      if (currentAuthToken != null) {
+        request.headers.set('Authorization', 'Bearer $currentAuthToken');
+      }
+      final response = await request.close();
+      final body = await response.transform(utf8.decoder).join();
+      return jsonDecode(body);
+    } catch (e) {
+      return {'success': false, 'error': e.toString()};
+    }
+  }
+
+  static Future<Map<String, dynamic>> getStudentClassAttendance() async {
+    try {
+      final client = HttpClient()..connectionTimeout = const Duration(seconds: 4);
+      final request = await client.getUrl(Uri.parse('$studentBaseUrl/class-attendance'));
+      request.headers.set('accept', 'application/json');
+      if (currentAuthToken != null) {
+        request.headers.set('Authorization', 'Bearer $currentAuthToken');
+      }
+      final response = await request.close();
+      final body = await response.transform(utf8.decoder).join();
+      return jsonDecode(body);
+    } catch (e) {
+      return {'success': false, 'error': e.toString()};
+    }
+  }
+
+  static Future<Map<String, dynamic>> getStudentClassReports() async {
+    try {
+      final client = HttpClient()..connectionTimeout = const Duration(seconds: 4);
+      final request = await client.getUrl(Uri.parse('$studentBaseUrl/class-reports'));
+      request.headers.set('accept', 'application/json');
+      if (currentAuthToken != null) {
+        request.headers.set('Authorization', 'Bearer $currentAuthToken');
+      }
+      final response = await request.close();
+      final body = await response.transform(utf8.decoder).join();
+      return jsonDecode(body);
+    } catch (e) {
+      return {'success': false, 'error': e.toString()};
+    }
+  }
+
+  static Future<Map<String, dynamic>> getGuardianChildGateAttendance(int studentId) async {
+    try {
+      final client = HttpClient()..connectionTimeout = const Duration(seconds: 4);
+      final request = await client.getUrl(Uri.parse('$guardianBaseUrl/children/$studentId/gate-attendance'));
+      request.headers.set('accept', 'application/json');
+      if (currentAuthToken != null) {
+        request.headers.set('Authorization', 'Bearer $currentAuthToken');
+      }
+      final response = await request.close();
+      final body = await response.transform(utf8.decoder).join();
+      return jsonDecode(body);
+    } catch (e) {
+      return {'success': false, 'error': e.toString()};
+    }
+  }
+
+  static Future<Map<String, dynamic>> getGuardianChildClassAttendance(int studentId) async {
+    try {
+      final client = HttpClient()..connectionTimeout = const Duration(seconds: 4);
+      final request = await client.getUrl(Uri.parse('$guardianBaseUrl/children/$studentId/class-attendance'));
+      request.headers.set('accept', 'application/json');
+      if (currentAuthToken != null) {
+        request.headers.set('Authorization', 'Bearer $currentAuthToken');
+      }
+      final response = await request.close();
+      final body = await response.transform(utf8.decoder).join();
+      return jsonDecode(body);
+    } catch (e) {
+      return {'success': false, 'error': e.toString()};
+    }
+  }
+
+  static Future<Map<String, dynamic>> getGuardianChildClassReports(int studentId) async {
+    try {
+      final client = HttpClient()..connectionTimeout = const Duration(seconds: 4);
+      final request = await client.getUrl(Uri.parse('$guardianBaseUrl/children/$studentId/class-reports'));
+      request.headers.set('accept', 'application/json');
+      if (currentAuthToken != null) {
+        request.headers.set('Authorization', 'Bearer $currentAuthToken');
+      }
+      final response = await request.close();
+      final body = await response.transform(utf8.decoder).join();
+      return jsonDecode(body);
+    } catch (e) {
+      return {'success': false, 'error': e.toString()};
+    }
+  }
+
+  static Future<bool> registerDeviceToken(String token, {String platform = 'android', bool isGuardian = false}) async {
+    try {
+      final url = isGuardian ? '$guardianBaseUrl/device-token' : '$studentBaseUrl/device-token';
+      final client = HttpClient()..connectionTimeout = const Duration(seconds: 4);
+      final request = await client.postUrl(Uri.parse(url));
+      request.headers.set('content-type', 'application/json');
+      request.headers.set('accept', 'application/json');
+      if (currentAuthToken != null) {
+        request.headers.set('Authorization', 'Bearer $currentAuthToken');
+      }
+      request.add(utf8.encode(jsonEncode({
+        'token': token,
+        'platform': platform,
+      })));
+      final response = await request.close();
+      return response.statusCode == 200;
+    } catch (_) {
+      return false;
+    }
+  }
 }
